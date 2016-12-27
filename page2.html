@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <script src="jquery.query-object.js"></script>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="//d79i1fxsrar4t.cloudfront.net/jquery.liveaddress/3.2/jquery.liveaddress.min.js"></script>
+    <script>
+      jQuery.LiveAddress({key: "23044165302913451", debug: false, target: "US", addresses: [{
+        id: 'address', 
+        address: '#street',
+        locality: '#city',
+        administrative_area: '#state',
+        postal_code: '#zip',
+        country: '#country'
+      }]
+    });
+    </script>
+  </head> 
+  
+  <body>
+    <div id = "intro">
+      <a href="index.html" id="home">Home</a>
+      <h1>The Startup Checkup</h1> 
+      <h2>
+        <p>
+          dummy description of site purpose
+          <br>
+          The link to the Delaware site can be found <a href="https://icis.corp.delaware.gov/Ecorp/EntitySearch/NameSearch.aspx">here</a>.
+        </p>
+      </h2>
+      <h3> 
+        Disclaimer: 
+      </h3> 
+      
+      <hr>
+    </div>
+    
+    <div>
+      <h2>Verify your information</h2>
+      First Name: <p id="o_fname"></p>
+      <br>
+      Last Name: <p id="o_lname"></p>
+      <br>
+      Company Name: <p id="o_cname"></p>
+      <br>
+      Company Address: <p id="o_caddress"></p>
+      <br>
+      Number of Shares Owned: <p id="o_numshares"></p>
+      <br>
+      Purpose: 
+      <br>
+      <br>
+    </div>
+    
+    <div id="footer">
+      <a href="index.html">Go back to edit</a>
+      <a href="page3.html">Next page</a>
+    </div>
+
+
+  </body> 
+  
+  <script>
+  
+  document.getElementById("o_fname").value = $.query.get('fname');
+  document.getElementById("o_lname").value = $.query.get('lname');
+  document.getElementById("o_cname").value = $.query.get('cname');
+  document.getElementById("o_numshares").value = $.query.get('numshares');
+  
+  document.getElementById("secondary_id").value = $.query.get('secondary');
+  document.getElementById("city_id").value = $.query.get('city');
+  document.getElementById("state_id").value = $.query.get('state');
+  document.getElementById("country_id").value = $.query.get('country');
+  document.getElementById("zip_id").value = $.query.get('zip');
+  document.getElementById("purpose1_id").value = $.query.get('p1');
+  document.getElementById("purpose2_id").value = $.query.get('p2');
+  document.getElementById("purpose3_id").value = $.query.get('p3');
+
+  
+  </script>
+</html> 
