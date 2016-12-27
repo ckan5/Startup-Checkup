@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <script data-require="jquery@3.0.0" data-semver="3.0.0" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="//d79i1fxsrar4t.cloudfront.net/jquery.liveaddress/3.2/jquery.liveaddress.min.js">
+      var liveaddress = $.LiveAddress({
+    			key: "23044165302913451", 
+    			debug: false,
+    			target: "US",
+    			autocomplete: 5,
+    			autoVerify: false,
+    			submitVerify: true,
+    			missingInputMessage: "Address required",
+    			addresses: [{
+    				id: "caddress", 
+    				address1: "#street",
+    				locality: "#city",
+    				administrative_area: "#state",
+    				postal_code: "#zip",
+    				country:'#country'
+    			}]
+    		});
+    </script>
+  </head>
+
+  <body>
+  
+    <div id="intro">
+      <a href="index.html" id="home">Home</a>
+      <h1>The Startup Checkup</h1>
+      <h2>
+        <p>
+          dummy description of site purpose
+        <br />
+          The link to the Delaware site can be found <a href="https://icis.corp.delaware.gov/Ecorp/EntitySearch/NameSearch.aspx">here</a>
+        </p>
+      </h2>
+      <h3> 
+        Disclaimer: 
+      </h3>
+      <hr />
+    </div>
+    
+    <div>
+      <br/>
+      <p>Please fill out the information below so that we can generate your letter.</p>
+      <br/>
+      <form id="myForm" action="page2.html" method="GET" onsubmit="return validateForm()"> 
+        First Name: <input type="text" name="fname" id="fname" value="" required minlength="2" />
+        <br />
+        Last Name: <input type="text" name="lname" id="lname" value="" required minlength="2" />
+        <br />
+        Company Name: <input type="text" name="cname" id="cname" value="" required minlength="1" />
+        <br />
+        Number of Shares Owned: <input type="number" name="numshares" id="numshares" value="" required min="1" />
+        <br />
+        <br/>
+        Do you have an attorney?<input type="checkbox" id="attorneyYN" name="attorneyYN">Yes
+        <br/>
+        <br/>
+        <fieldset>
+          <legend>Company Address</legend>
+          <label>Street: </label>
+          <input type="text" id="street" name="street" value="" required />
+          <br />
+          <label>City: </label>
+          <input type="text" id="city" name="city" value="" required />
+          <br />
+          <label>State: </label>
+          <input type="text" id="state" name="state" value="" required />
+          <br />
+          <label>Postal Code: </label>
+          <input type="text" id="zip" name="zip" value="" required />
+          <br />
+          <label>Country: </label>
+          <input type="text" id="country" name="country" value="" required />
+          <br />
+        </fieldset>
+        <br/>
+        <fieldset>
+          <legend>Purpose</legend>
+          <input type="checkbox" name="purpose" id="p1" value="1" />1 <br />
+          <input type="checkbox" name="purpose" id="p2" value="2" />2 <br />
+          <input type="checkbox" name="purpose" id="p3" value="3" />3 <br />
+          <input type="checkbox" name="purpose" id="p4" value="4" />4 <br />
+          <input type="checkbox" name="purpose" id="p5" value="5" />5 <br />
+        </fieldset> 
+        <br />
+        <br />
+        <input type="reset" />
+        <input type="submit" value="Submit" />
+      </form>
+    </div>
+  </body>
+
+</html>
