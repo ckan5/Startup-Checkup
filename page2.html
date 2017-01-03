@@ -29,49 +29,63 @@
     
     <div>
       <h2>Verify your information</h2>
-      First Name: <p id="o_fname"></p>
-      <script>
-        document.getElementById("o_fname").innerHTML = $.query.get('fname');
-      </script>
-      <br>
-      Last Name: <p id="o_lname"></p>
-      <script>
-        document.getElementById("o_lname").innerHTML = $.query.get('lname');
-      </script>
-      <br>
-      Company Name: <p id="o_cname"></p>
-      <script>
-        document.getElementById("o_cname").innerHTML = $.query.get('cname');
-      </script>
-      <br>
+      First Name: <div id="o_fname">
+        <script>
+          document.getElementById("o_fname").innerHTML = $.query.get('fname');
+        </script>
+        <br>
+      </div>
+      Last Name: <div id="o_lname">
+        <script>
+          document.getElementById("o_lname").innerHTML = $.query.get('lname');
+        </script>
+        <br>
+      </div>
+      Company Name: <div id="o_cname">
+        <script>
+          document.getElementById("o_cname").innerHTML = $.query.get('cname');
+        </script>
+        <br>
+      </div>
+      Number of Shares Owned: <div id="o_numshares">
+        <script>
+          document.getElementById("o_numshares").innerHTML = $.query.get('numshares');
+        </script>
+        <br>
+      </div>
       <fieldset>
         <legend>Company Address: </legend>
-        Street: <p id="o_street"></p>
+        Street: <div id="o_street">
           <script>
             document.getElementById("o_street").innerHTML = $.query.get('street');
           </script>
-        City: <p id="o_city"></p>
+          <br>
+        </div>
+        City: <div id="o_city">
           <script>
             document.getElementById("o_city").innerHTML = $.query.get('city');
          </script>
-        State: <p id="o_state"></p>
+         <br>
+        </div>
+        State: <div id="o_state">
           <script>
             document.getElementById("o_state").innerHTML = $.query.get('state');
           </script>
-        Postal Code: <p id="o_zip"></p>
+          <br>
+        </div>
+        Postal Code: <div id="o_zip">
           <script>
             document.getElementById("o_zip").innerHTML = $.query.get('zip');
           </script>
-        Country: <p id="o_country"></p>
+          <br>
+        </div>
+        Country: <div id="o_country">
           <script>
             document.getElementById("o_country").innerHTML = $.query.get('country');
           </script>
+          <br>
+        </div>
       </fieldset>
-      <br>
-      Number of Shares Owned: <p id="o_numshares"></p>
-      <script>
-        document.getElementById("o_numshares").innerHTML = $.query.get('numshares');
-      </script>
       <br>
       Purpose: 
       <br>
