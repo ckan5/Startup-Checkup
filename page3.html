@@ -34,6 +34,29 @@
     <h3>See your letter below and print it as a PDF!</h3>
     <div id="letter">
       <h4>Demand for Inspection Corporate Books and Records</h4>
+      <div id="_cname">
+        <script>
+          document.getElementById("_cname").innerHTML = $.query.get('cname');
+        </script>
+      </div>
+      <div id="_caddressline1">
+        <script>
+          document.getElementById("_caddressline1").innerHTML = $.query.get('street');
+        </script>
+      </div>
+      <div id="caddressline2">
+        <script>
+          var city = $.query.get('city');
+          var state = $.query.get('state');
+          var country = $.query.get('country');
+          var zip = $.query.get('zip');
+          document.getElementById("caddressline2").innerHTML = city + ", " + state + country + zip
+        </script>
+      </div>
+      
+      <br>
+      <br>
+      
         To Whom It May Concern:
         <br>
         <br>
