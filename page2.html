@@ -92,10 +92,41 @@
       <br>
     </div>
     
+    <form action="print.html" method="GET">
+      <input type="hidden" name='name' id="name_id" value="">
+      <input type="hidden" name='company_name' id="company_name_id" value="">
+      <input type="hidden" name='shares' id="shares_id" value="">
+      <input type="hidden" name='street' id="street_id" value="">
+      <input type="hidden" name='secondary' id="secondary_id" value="">
+      <input type="hidden" name='city' id="city_id" value="">
+      <input type="hidden" name='state' id="state_id" value="">
+      <input type="hidden" name='country' id="country_id" value="">
+      <input type="hidden" name='zip' id="zip_id" value="">
+      <input type="hidden" name="purpose1" id="purpose1_id" value="">
+      <input type="hidden" name="purpose2" id="purpose2_id" value="">
+      <input type="hidden" name="purpose3" id="purpose3_id" value="">
+      <input type="submit">
+    </form>
+    
     <div id="footer">
       <button onclick="window.history.back()">Go Back</button>
       <a href="page3.html">Next page</a>
     </div>
   </body> 
+  
+  <script>
+    document.getElementById("o_fname").value = $.query.get('fname');
+    document.getElementById("o_lname").value = $.query.get('lname');
+    document.getElementById("o_cname").value = $.query.get('cname');
+    document.getElementById("o_numshares").value = $.query.get('numshares');
+
+    document.getElementById("o_city").value = $.query.get('city');
+    document.getElementById("o_state").value = $.query.get('state');
+    document.getElementById("o_zip").value = $.query.get('zip');
+    document.getElementById("o_country").value = $.query.get('country');
+    document.getElementById("purpose1_id").value = $.query.get('p1');
+    document.getElementById("purpose2_id").value = $.query.get('p2');
+    document.getElementById("purpose3_id").value = $.query.get('p3');
+  </script>
   
 </html> 
