@@ -36,13 +36,19 @@
       <h4>Demand for Inspection Corporate Books and Records</h4>
       <p>
         To Whom It May Concern:
-        <script>
-          var fname = $.query.get('fname');
-          var lname = $.query.get('lname');
-          var shares = $.query.get('numshares');
-          var company_name = $.query.get('cname');
-          document.getElementById("intro").innerHTML = "The undersigned, " + fname +lname + ", holds " + numshares + " shares in " + cname + " and formally requests the corporation's books and records."
-        </script>
+        <br>
+        <br>
+        <div id="letter intro">
+          <script>
+            var fname = $.query.get('fname');
+            var lname = $.query.get('lname');
+            var shares = $.query.get('numshares');
+            var company_name = $.query.get('cname');
+            document.getElementById("letterintro").innerHTML = "The undersigned, " + fname +lname + ", holds " + numshares + " shares in " + cname + " and formally requests the corporation's books and records."
+          </script>
+          <br>
+        </div>
+        <br> 
         Here are the following reasons for the request:
         <ul>
           <script>
@@ -67,7 +73,10 @@
         <br>
         The undersigned also states that he has never sold nor offered for sale any list of shareholders of any corporation, nor assisted any person in obtaining such list or record for such purposes.
         <br>
+        <br>
         Please let him know when the request will be made available.
+        <br>
+        <br>
         <br>
         Signed,
         <br>
