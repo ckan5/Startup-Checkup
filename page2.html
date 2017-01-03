@@ -15,7 +15,7 @@
       <h1>The Startup Checkup</h1> 
       <h2>
         <p>
-          dummy description of site purpose
+          description of site purpose
           <br>
           The link to the Delaware site can be found <a href="https://icis.corp.delaware.gov/Ecorp/EntitySearch/NameSearch.aspx">here</a>.
         </p>
@@ -30,14 +30,48 @@
     <div>
       <h2>Verify your information</h2>
       First Name: <p id="o_fname"></p>
+      <script>
+        document.getElementById("o_fname").innerHTML = $.query.get('fname');
+      </script>
       <br>
       Last Name: <p id="o_lname"></p>
+      <script>
+        document.getElementById("o_lname").innerHTML = $.query.get('lname');
+      </script>
       <br>
       Company Name: <p id="o_cname"></p>
+      <script>
+        document.getElementById("o_cname").innerHTML = $.query.get('cname');
+      </script>
       <br>
-      Company Address: <p id="o_caddress"></p>
+      <fieldset>
+        <legend>Company Address: </legend>
+        Street: <p id="o_street"></p>
+          <script>
+            document.getElementById("o_street").innerHTML = $.query.get('street');
+          </script>
+        City: <p id="o_city"></p>
+          <script>
+            document.getElementById("o_city").innerHTML = $.query.get('city');
+         </script>
+        State: <p id="o_state"></p>
+          <script>
+            document.getElementById("o_state").innerHTML = $.query.get('state');
+          </script>
+        Postal Code: <p id="o_zip"></p>
+          <script>
+            document.getElementById("o_zip").innerHTML = $.query.get('zip');
+          </script>
+        Country: <p id="o_country"></p>
+          <script>
+            document.getElementById("o_country").innerHTML = $.query.get('country');
+          </script>
+      </fieldset>
       <br>
       Number of Shares Owned: <p id="o_numshares"></p>
+      <script>
+        document.getElementById("o_numshares").innerHTML = $.query.get('numshares');
+      </script>
       <br>
       Purpose: 
       <br>
@@ -48,26 +82,6 @@
       <button onclick="window.history.back()">Go Back</button>
       <a href="page3.html">Next page</a>
     </div>
-
-
   </body> 
   
-  <script>
-  
-  document.getElementById("o_fname").value = $.query.get('fname');
-  document.getElementById("o_lname").value = $.query.get('lname');
-  document.getElementById("o_cname").value = $.query.get('cname');
-  document.getElementById("o_numshares").value = $.query.get('numshares');
-  
-  document.getElementById("secondary_id").value = $.query.get('secondary');
-  document.getElementById("city_id").value = $.query.get('city');
-  document.getElementById("state_id").value = $.query.get('state');
-  document.getElementById("country_id").value = $.query.get('country');
-  document.getElementById("zip_id").value = $.query.get('zip');
-  document.getElementById("purpose1_id").value = $.query.get('p1');
-  document.getElementById("purpose2_id").value = $.query.get('p2');
-  document.getElementById("purpose3_id").value = $.query.get('p3');
-
-  
-  </script>
 </html> 
