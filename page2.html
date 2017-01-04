@@ -73,15 +73,15 @@
           </script>
           <br>
         </div>
-        Postal Code: <div id="o_zip">
-          <script>
-            document.getElementById("o_zip").innerHTML = $.query.get('zip');
-          </script>
-          <br>
-        </div>
         Country: <div id="o_country">
           <script>
             document.getElementById("o_country").innerHTML = $.query.get('country');
+          </script>
+          <br>
+        </div>
+        Postal Code: <div id="o_zip">
+          <script>
+            document.getElementById("o_zip").innerHTML = $.query.get('zip');
           </script>
           <br>
         </div>
@@ -91,7 +91,43 @@
       <br>
       <br>
     </div>
-       
+
+    <form action="page3.html" method="GET">
+      <input type="hidden" name='fname' id="-fname" value="">
+      <input type="hidden" name='lname' id="-lname" value="">
+      <input type="hidden" name='company_name' id="-cname" value="">
+      <input type="hidden" name='shares' id="-numshares" value="">
+      <input type="hidden" name='street' id="-street" value="">
+      <input type="hidden" name='city' id="-city" value="">
+      <input type="hidden" name='state' id="-state" value="">
+      <input type="hidden" name='country' id="-country" value="">
+      <input type="hidden" name='zip' id="-zip" value="">
+      <input type="hidden" name="p1" id="-p1" value="">
+      <input type="hidden" name="p2" id="-p2" value="">
+      <input type="hidden" name="p3" id="-p3" value="">
+      <input type="hidden" name="p4" id="-p4" value="">
+      <input type="hidden" name="p5" id="-p5" value="">
+      <input type="submit">
+    </form>
+
+    <script>
+    document.getElementById("-fname").value = $.query.get('fname');
+    document.getElementById("-lname").value = $.query.get('lname');
+    document.getElementById("-cname").value = $.query.get('cname');
+    document.getElementById("-numshares").value = $.query.get('numshares');
+    document.getElementById("-street").value = $.query.get('street');
+    document.getElementById("-city").value = $.query.get('city');
+    document.getElementById("-state").value = $.query.get('state');
+    document.getElementById("-country").value = $.query.get('country');
+    document.getElementById("-zip").value = $.query.get('zip');
+    document.getElementById("-p1").value = $.query.get('p1');
+    document.getElementById("-p2").value = $.query.get('p2');
+    document.getElementById("-p3").value = $.query.get('p3');
+    document.getElementById("-p4").value = $.query.get('p4');
+    document.getElementById("-p5").value = $.query.get('p5');
+    </script>
+
+    
     <div id="footer">
       <br>
       <form action="page3.html">
