@@ -15,6 +15,7 @@ h3 {
 #letter {
   border: solid grey;
   border-radius: 3px;
+  padding: 50px;
 }
 
 div.wrapper {
