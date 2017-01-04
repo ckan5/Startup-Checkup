@@ -1,6 +1,6 @@
 // Code goes here
 
-
+ 
 function validateForm() {
   var fname = document.forms["myForm"]["fname"].value;
   if (fname === "") {
