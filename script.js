@@ -31,14 +31,15 @@ function validateForm() {
   function purposeCheck() {
     var checkBoxes = document.getElementsByClassName( 'purpose' );
     var isChecked = false;
-        for (var i = 0; i < checkBoxes.length; i++) {
-            if ( checkBoxes[i].checked ) {
-                isChecked = true;
+      for (var i = 0; i < checkBoxes.length; i++) {
+        if ( checkBoxes[i].checked ) {
+          isChecked = true;
         };
-    };
+      };
     if ( isChecked == false ) {
-        alert( 'You must select at least one purpose.' );
-        }   
+      alert( 'You must select at least one purpose.' );
+      return false;
+    }   
   }
   
 }
