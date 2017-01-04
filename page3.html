@@ -36,13 +36,15 @@
       <h4>Demand for Inspection Corporate Books and Records</h4>
       <div id="_cname">
         <script>
-          document.write($.query.get('cname'));
+          var cname = $.query.get('city');
+          document.write(cname);
           <br>
         </script>
       </div>
       <div id="_caddressline1">
         <script>
-          document.write($.query.get('street'));
+          var street = $.query.get('street');
+          document.write(street);
           <br>
         </script>
       </div>
