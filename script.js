@@ -28,10 +28,17 @@ function validateForm() {
     return false;
   }
     
-  if (letterform.p1.checked == false && letterform.p2.checked == false && letterform.p3.checked == false && letterform.p4.checked == false && letterform.p5.checked == false) {
-    alert("At least one purpose must be checked.");
-    letterform.p5.focus();
-    return false;
+  function purposeCheck() {
+    var checkBoxes = document.getElementsByClassName( 'purpose' );
+    var isChecked = false;
+        for (var i = 0; i < checkBoxes.length; i++) {
+            if ( checkBoxes[i].checked ) {
+                isChecked = true;
+        };
+    };
+    if ( isChecked == false ) {
+        alert( 'You must select at least one purpose.' );
+        }   
   }
   
 }
