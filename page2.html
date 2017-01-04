@@ -93,8 +93,7 @@
       <br>
       <div id="p1_">
         <script>
-          if (letterform.p1.is(':checked')) {
-            alert("Hello!");
+          if ($.query.get('purpose1')) {
             document.getElementById("p1_").innerHTML = $.query.get('p1');
           }
         </script>
@@ -102,7 +101,7 @@
       </div>
       <div id="p2_">
         <script>
-          if (letterform.p2.checked == true) {
+          if (letterform.p2.is(':checked')) { 
             document.getElementById("p2_").innerHTML = $.query.get('p2');
           }
         </script>
