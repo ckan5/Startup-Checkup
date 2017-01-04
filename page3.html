@@ -60,66 +60,67 @@
       <br>
       <br>
       
-        To Whom It May Concern:
+      To Whom It May Concern:
+      <br>
+      <br>
+      <div id="letterintro">
+        <script>
+          var fname = $.query.get('fname');
+          var lname = $.query.get('lname');
+          var numshares = $.query.get('numshares');
+          var cname = $.query.get('cname');
+          document.write("The undersigned, " + fname + " " + lname + ", holds " + numshares + " shares in " + cname + " and formally requests the corporation's books and records.");
+        </script>
+        <br>
+      </div>
+      <br> 
+      <div id="purposes"> 
+        Here are the following reasons for the request:
         <br>
         <br>
-        <div id="letterintro">
+        <div id="_p1_">
           <script>
-            var fname = $.query.get('fname');
-            var lname = $.query.get('lname');
-            var numshares = $.query.get('numshares');
-            var cname = $.query.get('cname');
-            document.write("The undersigned, " + fname + " " + lname + ", holds " + numshares + " shares in " + cname + " and formally requests the corporation's books and records.");
-          </script>
-          <br>
-        </div>
-        <br> 
-        <div id="purposes"> 
-          Here are the following reasons for the request:
-          <br>
-          <br>
-          <div id="p1_">
-            <script>
-              if ($.query.get('p1')) {
-                document.getElementById("p1_").innerHTML = $.query.get('p1');
-              }
-            </script>
-            <br>
-          </div>
-          <div id="p2_">
-            <script>
-              if ($.query.get('p2')) {
-                document.getElementById("p2_").innerHTML = $.query.get('p2');
-              }
-            </script>
-            <br>
-          </div>
-          <div id="p3_">
-            <script>
-              if ($.query.get('p3')) {
-                document.getElementById("p3_").innerHTML = $.query.get('p3');
-              }
-            </script>
-            <br>
-          </div>
-        <div id="p4_">
-          <script>
-            if ($.query.get('p4')) {
-              document.getElementById("p4_").innerHTML = $.query.get('p4');
+            if ($.query.get('p1')) {
+              document.getElementById("_p1_").innerHTML = $.query.get('p1');
+              document.write("<br />");
             }
           </script>
-          <br>
         </div>
-        <div id="p5_">
+        <div id="_p2_">
+          <script>
+            if ($.query.get('p2')) {
+              document.getElementById("_p2_").innerHTML = $.query.get('p2');
+              document.write("<br />");
+            }
+          </script>
+        </div>
+        <div id="_p3_">
+          <script>
+            if ($.query.get('p3')) {
+              document.getElementById("_p3_").innerHTML = $.query.get('p3');
+              document.write("<br />");
+            }
+          </script>
+        </div>
+        <div id="_p4_">
+          <script>
+               document.write("<br />");
+           if ($.query.get('p4')) {
+              document.getElementById("_p4_").innerHTML = $.query.get('p4');
+              document.write("<br />");
+            }
+          </script>
+        </div>
+        <div id="_p5_">
           <script>
             if ($.query.get('p5')) {
-              document.getElementById("p5_").innerHTML = $.query.get('p5');
+              document.getElementById("_p5_").innerHTML = $.query.get('p5');
+              document.write("<br />");
             }
           </script>
-          <br>
         </div>
       </div>
-      
+
       <br>
       The undersigned also states that he has never sold nor offered for sale any list of shareholders of any corporation, nor assisted any person in obtaining such list or record for such purposes.
       <br>
