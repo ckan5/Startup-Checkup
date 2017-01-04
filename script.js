@@ -30,7 +30,7 @@ function validateForm() {
 }  
 
   function purposeCheck() {
-    alert("HELLO");
+    return false;
     var checkBoxes = document.getElementsByClassName( 'purpose' );
     var isChecked = false;
       for (var i = 0; i < checkBoxes.length; i++) {
