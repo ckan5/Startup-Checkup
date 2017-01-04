@@ -107,7 +107,8 @@
       <input type="hidden" name="p3" id="-p3" value="">
       <input type="hidden" name="p4" id="-p4" value="">
       <input type="hidden" name="p5" id="-p5" value="">
-      <input type="submit">
+      <button onclick="window.history.back()">Go Back</button>
+      <input type="submit" value="Submit">
     </form>
 
     <script>
@@ -126,15 +127,7 @@
     document.getElementById("-p4").value = $.query.get('p4');
     document.getElementById("-p5").value = $.query.get('p5');
     </script>
-
     
-    <div id="footer">
-      <br>
-      <form action="page3.html">
-        <button onclick="window.history.back()">Go Back</button>
-        <input type="submit" value="Next page" />
-      </form>
-    </div>
   </body> 
    
 </html> 
