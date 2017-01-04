@@ -101,7 +101,7 @@
       </div>
       <div id="p2_">
         <script>
-          if (letterform.p2.is(':checked')) { 
+          if ($.query.get('p2')) {
             document.getElementById("p2_").innerHTML = $.query.get('p2');
           }
         </script>
@@ -109,7 +109,7 @@
       </div>
       <div id="p3_">
         <script>
-          if (letterform.p3.checked == true) {
+          if ($.query.get('p3')) {
             document.getElementById("p3_").innerHTML = $.query.get('p3');
           }
         </script>
@@ -117,7 +117,7 @@
       </div>
       <div id="p4_">
         <script>
-          if (letterform.p4.checked == true) {
+          if ($.query.get('p4')) {
             document.getElementById("p4_").innerHTML = $.query.get('p4');
           }
         </script>
@@ -125,7 +125,7 @@
       </div>
       <div id="p5_">
         <script>
-          if (letterform.p5.checked == true) {
+          if ($.query.get('p5')) {
             document.getElementById("p5_").innerHTML = $.query.get('p5');
           }
         </script>
