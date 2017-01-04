@@ -12,7 +12,7 @@ h3 {
   text-align: center;
 }
 
-#letter {
+div.letter {
   border: solid grey;
   border-radius: 3px;
   padding: 50px;
