@@ -29,7 +29,7 @@ function validateForm() {
   }
   
   if (letterform.p1.checked == false && letterform.p2.checked == false && letterform.p3.checked == false && letterform.p4.checked == false && letterform.p5.checked == false) {
-    this.setCustomValidity("At least one purpose must be checked.");
+    alert("At least one purpose must be checked.");
   }
   
 }
