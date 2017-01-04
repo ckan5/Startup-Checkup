@@ -27,7 +27,8 @@ function validateForm() {
     alert("Number of shares owned must be at least 1");
     return false;
   }
-    
+}  
+
   function purposeCheck() {
     var checkBoxes = document.getElementsByClassName( 'purpose' );
     var isChecked = false;
@@ -42,7 +43,7 @@ function validateForm() {
     }   
   }
   
-}
+
 
 
 
