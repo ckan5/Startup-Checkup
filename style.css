@@ -30,3 +30,7 @@ div.wrapper {
   width: 150px;
   font-size: 200%;
 }
+
+div.purposes {
+  text-indent: 20px;
+}
