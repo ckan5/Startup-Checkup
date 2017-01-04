@@ -28,6 +28,6 @@ div.wrapper {
   font-size: 200%;
 }
 
-div.purposes {
-  margin-left: 50px;
+#purposes {
+  padding: 25px;
 }
