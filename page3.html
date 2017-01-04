@@ -80,7 +80,7 @@
         <br>
         <div id="_p1_">
           <script>
-           if(letterform.p1.prop("checked") == true){
+           if ($.query.get('p1').length > 0) {
             document.getElementById("_p1_").innerHTML = $.query.get('p1');
             document.write("<br />");
             }
@@ -88,7 +88,7 @@
         </div>
         <div id="_p2_">
           <script>
-            if ($.query.get('p2')) {
+           if ($.query.get('p2').length > 0) {
               document.getElementById("_p2_").innerHTML = $.query.get('p2');
               document.write("<br />");
             }
