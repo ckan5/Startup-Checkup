@@ -61,7 +61,7 @@
         Number of Shares Owned: <input type="number" name="numshares" id="numshares" value="" required min="1" />
         <br />
         <br/>
-        Do you have an attorney?<input type="checkbox" id="attorneyYN" name="attorneyYN">Yes
+        Do you have an attorney?<input type="checkbox" id="attorneyYN" name="attorneyYN" oninvalid="attorneyCheck(this);" oninput="attorneyCheck(this);" onchange="attorneyCheck(this);">Yes
         <br/>
         <br/>
         <fieldset>
