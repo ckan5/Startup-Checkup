@@ -34,19 +34,17 @@
     <h3>See your letter below and print it as a PDF!</h3>
     <div id="letter">
       <h4>Demand for Inspection Corporate Books and Records</h4>
-      <div id="_cname">
+      <div id="o_cname">
         <script>
-          var cname = $.query.get('city');
-          document.write(cname);
-          <br>
+          document.getElementById("o_cname").innerHTML = $.query.get('cname');
         </script>
+        <br>
       </div>
-      <div id="_caddressline1">
+      <div id="caddressline1">
         <script>
-          var street = $.query.get('street');
-          document.write(street);
-          <br>
+          document.getElementById("caddressline1").innerHTML = $.query.get('street');
         </script>
+        <br>
       </div>
       <div id="caddressline2">
         <script>
