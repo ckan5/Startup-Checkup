@@ -1,11 +1,5 @@
 // Code goes here
 
-function show(shown, hidden1, hidden2) {
-  document.getElementById(shown).style.display='block';
-  document.getElementById(hidden1).style.display='none';
-  document.getElementById(hidden2).style.display='none';
-  return false;
-}
 
 function validateForm() {
   var fname = document.forms["myForm"]["fname"].value;
@@ -23,7 +17,7 @@ function validateForm() {
     alert("Company name must be filled out");
     return false;
   }
-//need to input smartystreets here 
+
   var numshares = document.forms["myForm"]["numshares"].value;
   if (numshares === "") {
     alert("Number of shares owned must be at least 1");
@@ -34,25 +28,15 @@ function validateForm() {
     return false;
   }
   
+  if (letterform.attorneyYN.checked == true) {
+    this.setCustomValidity("This site is meant for those without attorneys. Please consult your attorney instead.");
+  }
+  
+  if (letterform.p1.checked == false && letterform.p2.checked == false && letterform.p3.checked == false && letterform.p4.checked == false && letterform.p5.checked == false) {
+    this.setCustomValidity("At least one purpose must be checked.");
+  }
+  
 }
 
 
-$( document ).ready(function() {
-    $('#numshares').change(function(){
-        $('#o_fname').html($('#fname').val());
-        $('#o_lname').html($('#lname').val());
-        $('#o_cname').html($('#cname').val());
-        $('#o_caddress').html($('#street').val()+$('#city').val()+$('#state').val()+$('#country').val()+$('#zip').val());
-        $('#o_numshares').html($('#numshares').val());
-        
-    });
-});
-
-function display(myForm) {
-  form.o_fname.value = form.fname.value;
-  form.o_lname.value = form.lname.value;
-  form.o_cname.value = form.cname.value;
-  form.o_numshares.value = form.numshares.value;
-  return false;
-}
 
