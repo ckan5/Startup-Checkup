@@ -8,8 +8,9 @@
     <script src="jquery.query-object.js"></script>
     <script src="grabzit.min.js"></script>
     <script>
-      GrabzIt("YzA5NGYzZTc3NTg2NDM4YmE4MmZjNzBmYzZkNTNlYWU=Application Secret").ConvertHTML("<html><body><h1>Hello World!</h1></body></html>",
-      {"format": "pdf"}).Create();
+      function createpdf(x) {
+        GrabzIt("YzA5NGYzZTc3NTg2NDM4YmE4MmZjNzBmYzZkNTNlYWU=").ConvertHTML(x, {"format": "pdf"}).Create();
+      }
     </script>
   </head> 
   
@@ -137,7 +138,7 @@
     <div id="footer">
       <div class="wrapper">
         <br>
-        <button type="button" id="pdfbutton" onclick="pdfCreate(document.getElementById('letter').innerHTML)">Get PDF!</button>
+        <button type="button" id="pdfbutton" onclick="createpdf(document.getElementById('letter').innerHTML)">Get PDF!</button>
         <br>
       </div>
       <button onclick="window.history.back()">Go Back</button>
