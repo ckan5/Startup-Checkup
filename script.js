@@ -28,10 +28,6 @@ function validateForm() {
     return false;
   }
   
-  if (letterform.attorneyYN.checked == true) {
-    this.setCustomValidity("This site is meant for those without attorneys. Please consult your attorney instead.");
-  }
-  
   if (letterform.p1.checked == false && letterform.p2.checked == false && letterform.p3.checked == false && letterform.p4.checked == false && letterform.p5.checked == false) {
     this.setCustomValidity("At least one purpose must be checked.");
   }
