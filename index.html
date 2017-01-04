@@ -61,7 +61,10 @@
         Number of Shares Owned: <input type="number" name="numshares" id="numshares" value="" required min="1" />
         <br />
         <br/>
-        Do you have an attorney?<input type="checkbox" id="attorneyYN" name="attorneyYN">No
+        Do you have an attorney?<input type="checkbox" id="attorneyYN" name="attorneyYN" required onchange="this.setCustomValidity(validity.valueMissing ? 'This site is not meant for those with attorneys. Please verify that you do not have an attorney.' : '');">No
+        <script>
+          document.getElementById("attorneyYN").setCustomValidity("This site is not meant for those with attorneys. Please verify that you do not have an attorney.");
+        </script>
         <br/>
         <br/>
         <fieldset>
