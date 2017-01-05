@@ -80,7 +80,7 @@
         <br>
         <div id="_p1_">
           <script>
-           if ($.query.get('p1').length > 0) {
+            if ($.query.get('p1')) {
             document.getElementById("_p1_").innerHTML = $.query.get('p1');
             document.write("<br />");
             }
@@ -88,7 +88,7 @@
         </div>
         <div id="_p2_">
           <script>
-           if ($.query.get('p2').length > 0) {
+            if ($.query.get('p2')) {
               document.getElementById("_p2_").innerHTML = $.query.get('p2');
               document.write("<br />");
             }
@@ -139,7 +139,7 @@
     <div id="footer">
       <div class="wrapper">
         <br>
-        <button type="button" id="pdfbutton" onclick="pdfCreate(document.getElementById('letter').innerHTML);">Get PDF!</button>
+        <button type="button" id="pdfbutton" onclick="pdfCreate(document.getElementById('letter').innerHTML)">Get PDF!</button>
         <br>
       </div>
       <button onclick="window.history.back()">Go Back</button>
