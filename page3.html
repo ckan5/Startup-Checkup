@@ -94,7 +94,7 @@
         </div>
         <div id="_p3_">
           <script>
-            if ($.query.get('p3')) {
+            if ($.query.get('p3' !== true)) {
               document.getElementById("_p3_").innerHTML = $.query.get('p3');
               document.write("<br />");
             }
@@ -103,7 +103,7 @@
         <div id="_p4_">
           <script>
                document.write("<br />");
-           if ($.query.get('p4')) {
+           if ($.query.get('p4' !== true)) {
               document.getElementById("_p4_").innerHTML = $.query.get('p4');
               document.write("<br />");
             }
@@ -111,7 +111,7 @@
         </div>
         <div id="_p5_">
           <script>
-            if ($.query.get('p5')) {
+            if ($.query.get('p5' !== true)) {
               document.getElementById("_p5_").innerHTML = $.query.get('p5');
               document.write("<br />");
             }
