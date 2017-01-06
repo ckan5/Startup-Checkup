@@ -81,7 +81,12 @@
          var lname = $.query.get('lname');
          document.write(fname + " " + lname);
        </script>
-      are holders of shares of 
+      are holders of 
+       <script> 
+         var numshares = $.query.get('numshares');
+         document.write(fname + " " + numshares);
+       </script>    
+      shares of 
        <script> 
          var cname = $.query.get('cname');
          document.write(cname);
@@ -91,7 +96,6 @@
       <br><br>
 
       Pursuant to Section 220 of the Delaware General Corporation Law, 
-      <p id="name"></p>
        <script> 
          var fname = $.query.get('fname');
          var lname = $.query.get('lname');
@@ -178,7 +182,7 @@
       and e-mail 
        <script> 
          var email = $.query.get('email');
-         document.write(email);
+         document.write(email + ".");
        </script>
       <br>
       <br>
