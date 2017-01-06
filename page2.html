@@ -41,6 +41,18 @@
         </script>
         <br>
       </div>
+      Phone number: <div id="o_tel">
+        <script>
+          document.getElementById("o_tel").innerHTML = $.query.get('tel');
+        </script>
+        <br>
+      </div>
+      Email: <div id="o_email">
+        <script>
+          document.getElementById("o_email").innerHTML = $.query.get('email');
+        </script>
+        <br>
+      </div>
       Company Name: <div id="o_cname">
         <script>
           document.getElementById("o_cname").innerHTML = $.query.get('cname');
@@ -137,6 +149,10 @@
     <form action="page3.html" method="GET">
       <input type="hidden" name='fname' id="-fname" value="">
       <input type="hidden" name='lname' id="-lname" value="">
+      <input type="hidden" name='tel' id="-tel" value="">
+      <input type="hidden" name='email' id="-email" value="">
+      <input type="hidden" name='cname' id="-cname" value="">
+      <input type="hidden" name='shares' id="-numshares" value="">
       <input type="hidden" name='cname' id="-cname" value="">
       <input type="hidden" name='shares' id="-numshares" value="">
       <input type="hidden" name='street' id="-street" value="">
@@ -156,6 +172,8 @@
     <script>
     document.getElementById("-fname").value = $.query.get('fname');
     document.getElementById("-lname").value = $.query.get('lname');
+    document.getElementById("-tel").value = $.query.get('tel');
+    document.getElementById("-email").value = $.query.get('email');
     document.getElementById("-cname").value = $.query.get('cname');
     document.getElementById("-numshares").value = $.query.get('numshares');
     document.getElementById("-street").value = $.query.get('street');
