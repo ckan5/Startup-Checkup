@@ -1,49 +1,74 @@
-// Code goes here
 
- 
+function addAttorneyCheck() {
+  if (letterform.attorneyYN.checked == false) {
+    letterform.attorneyYN.setCustomValidity("This site is not meant for those with attorneys. Please verify that you do not have an attorney.");
+  }
+
+  else if (letterform.attorneyYN.checked == true) {
+    letterform.attorneyYN.setCustomValidity("");
+  }
+}
+
+function addSharesCheck() {
+  if (letterform.numshares.value == 0) {
+    letterform.numshares.setCustomValidity("Need more than 0 shares.");
+  }
+
+  else if (letterform.numshares.value > 0) {
+    letterform.numshares.setCustomValidity("");
+  }
+}
+
+function addPurposeCheck() {
+  if (letterform.p1.checked == false && letterform.p2.checked == false && letterform.p3.checked == false && letterform.p4.checked == false && letterform.p5.checked == false) {
+    letterform.p1.setCustomValidity("Need to choose at least one purpose.");
+  }
+
+  else if (letterform.p1.checked == true || letterform.p2.checked == true || letterform.p3.checked == true || letterform.p4.checked == true || letterform.p5.checked == true) {
+    letterform.p1.setCustomValidity("");
+  }
+}
+
+function pdfCreate(x) {
+    GrabzIt("YWFmNTY4Yjc1NjNmNGY0YThmNjc5N2Q2NTFlOTFlNTg=").ConvertHTML(x, {"format": "pdf", "background": 0}).Create();
+} 
+
 function validateForm() {
-  var fname = document.forms["myForm"]["fname"].value;
-  if (fname === "") {
-    alert("First name must be filled out");
-    return false;
+  if (letterform.attorneyYN.checked == false) {
+    letterform.attorneyYN.focus();
+    return false
   }
-  var lname = document.forms["myForm"]["lname"].value;
-  if (lname === "") {
-    alert("Last name must be filled out");
-    return false;
-  }
-  var cname = document.forms["myForm"]["cname"].value;
-  if (cname === "") {
-    alert("Company name must be filled out");
+
+  if (letterform.numshares.value == 0) {
+    letterform.numshares.focus();
     return false;
   }
 
-  var numshares = document.forms["myForm"]["numshares"].value;
-  if (numshares === "") {
-    alert("Number of shares owned must be at least 1");
+  if(letterform.p1.checked == false && letterform.p2.checked == false && letterform.p3.checked == false && letterform.p4.checked == false && letterform.p5.checked == false) {
+    letterform.p1.focus();
     return false;
   }
-  else if (numshares < 1) {
-    alert("Number of shares owned must be at least 1");
-    return false;
+  else {
+    return true;
   }
-}  
 
-  function purposeCheck() {
-    var checkBoxes = document.getElementsByClassName( 'purpose' );
-    var isChecked = false;
-      for (var i = 0; i < checkBoxes.length; i++) {
-        if ( checkBoxes[i].checked ) {
-          isChecked = true;
-        };
-      };
-    if ( isChecked == false ) {
-      alert( 'You must select at least one purpose.' );
-      return false;
-    }   
+}
+
+window.onpageshow = function() {
+  addAttorneyCheck();
+  addSharesCheck();
+  addPurposeCheck();
+  document.getElementById("attorneyYN").addEventListener("change", addAttorneyCheck);
+  document.getElementById("numshares").addEventListener("change", addSharesCheck);
+  document.getElementById("p1").addEventListener("change", addPurposeCheck);
+  document.getElementById("p2").addEventListener("change", addPurposeCheck);
+  document.getElementById("p3").addEventListener("change", addPurposeCheck);
+  document.getElementById("p4").addEventListener("change", addPurposeCheck);
+  document.getElementById("p5").addEventListener("change", addPurposeCheck);
+  if(letterform.p1.checked == false && letterform.p2.checked == false && letterform.p3.checked == false && letterform.p4.checked == false && letterform.p5.checked == false) {
+    letterform.p1.setCustomValidity("Need to choose at least one purpose.");
   }
-  
-
-
-
-
+  else {
+    letterform.p1.setCustomValidity("");
+  }
+};

@@ -17,7 +17,6 @@
         <p>
           description of site purpose
           <br>
-          The link to the Delaware site can be found <a href="https://icis.corp.delaware.gov/Ecorp/EntitySearch/NameSearch.aspx">here</a>.
         </p>
       </h2>
       <h3> 
@@ -71,6 +70,14 @@
         Street: <div id="o_street">
           <script>
             document.getElementById("o_street").innerHTML = $.query.get('street');
+          </script>
+          <br>
+        </div>
+        <div id="o_street2">
+          <script>
+          if ($.query.get('secondary') !== true ) {
+               document.getElementById("o_street2").innerHTML = $.query.get('secondary');
+            }
           </script>
           <br>
         </div>
@@ -146,16 +153,15 @@
       <br>
     </div>
 
-    <form action="page3.html" method="GET">
+    <form action="print.html" method="GET">
       <input type="hidden" name='fname' id="-fname" value="">
       <input type="hidden" name='lname' id="-lname" value="">
       <input type="hidden" name='tel' id="-tel" value="">
       <input type="hidden" name='email' id="-email" value="">
       <input type="hidden" name='cname' id="-cname" value="">
       <input type="hidden" name='shares' id="-numshares" value="">
-      <input type="hidden" name='cname' id="-cname" value="">
-      <input type="hidden" name='shares' id="-numshares" value="">
       <input type="hidden" name='street' id="-street" value="">
+      <input type="hidden" name='street2' id="-street2" value="">
       <input type="hidden" name='city' id="-city" value="">
       <input type="hidden" name='state' id="-state" value="">
       <input type="hidden" name='country' id="-country" value="">
@@ -177,6 +183,7 @@
     document.getElementById("-cname").value = $.query.get('cname');
     document.getElementById("-numshares").value = $.query.get('numshares');
     document.getElementById("-street").value = $.query.get('street');
+    document.getElementById("-street2").value = $.query.get('secondary');
     document.getElementById("-city").value = $.query.get('city');
     document.getElementById("-state").value = $.query.get('state');
     document.getElementById("-country").value = $.query.get('country');

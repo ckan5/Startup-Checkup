@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <script data-require="jquery@3.0.0" data-semver="3.0.0" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <script src="jquery-3.1.1.min.js"></script>
+    <script src="script.js"></script>
+    <script src="grabzit.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="//d79i1fxsrar4t.cloudfront.net/jquery.liveaddress/3.2/jquery.liveaddress.min.js"></script>
+    <script> var liveaddress = $.LiveAddress({
+      key: "30665467233688813", 
+      target: "US",
+      debug: false,
+      autocomplete: 5,
+      autoVerify: false,
+      submitVerify: false,
+      missingInputMessage: "Add the address",
+      addresses: [{
+        id: "company_address", 
+        address1: "#street",
+        address2: "#secondary",
+        locality: "#city",
+        administrative_area: "#state",
+        postal_code: "#zip",
+        country:'#country'
+      }]
+    });
+    </script> 
+  </head>
+
+  <body>
+  
+    <div id="intro">
+      <a href="index.html" id="home">Home</a>
+      <h1>The Startup Checkup</h1>
+      <h2>
+        <p>
+          description of site purpose
+        <br />
+        </p>
+      </h2>
+      <h3> 
+        Disclaimer: 
+      </h3>
+      <hr />
+    </div>
+    
+    <div>
+      <br/>
+      <p>Please fill out the information below so that we can generate your letter.</p>
+      <br/>
+      <form id="letterform" action="confirmation.html" method="GET" onsubmit="return purposeCheck()"> 
+        First Name: <input type="text" name="fname" id="fname" value="" required />
+        <br />
+        Last Name: <input type="text" name="lname" id="lname" value="" required />
+        <br />
+        Phone number: <input type="text" name="tel" id="tel" value="" required onkeyup="this.value=this.value.replace(/[^\d]/,'')"/>
+        <br />
+        Email: <input type="email" name="email" id="email" value="" required />
+        <br />
+        Company Name: <input type="text" name="cname" id="cname" value="" required />
+        <br />
+        Number of Shares Owned: <input type="number" name="numshares" id="numshares" value="" required min="1" />
+        <br />
+        <br/>
+        Do you have an attorney?<input type="checkbox" id="attorneyYN" name="attorneyYN" required onchange="this.setCustomValidity(validity.valueMissing ? 'This site is not meant for those with attorneys. Please verify that you do not have an attorney.' : '');">No
+        <script>
+          document.getElementById("attorneyYN").setCustomValidity("This site is not meant for those with attorneys. Please verify that you do not have an attorney.");
+        </script>
+        <br/>
+        <br/>
+        <fieldset>
+          <legend>Company Address</legend>
+          <label>Street: </label>
+          <input type="text" id="street" name="street" value="" required />
+          <br />
+          <label>Street 2:</label>
+          <input type="text" id="secondary" name="secondary" class="form-control">
+          <br />
+          <label>City: </label>
+          <input type="text" id="city" name="city" value="" required />
+          <br />
+          <label>State: </label>
+          <input type="text" id="state" name="state" value="" required />
+          <br />
+          <label>Country: </label>
+          <input type="text" id="country" name="country" value="" required />
+          <br />
+          <label>Postal Code: </label>
+          <input type="text" id="zip" name="zip" value="" required />
+          <br />
+          To verify your address, please click on the checkmark button next to the postal code input box.
+        </fieldset>
+        <br/>
+        <fieldset>
+          <legend>Purpose</legend>
+          <input type="checkbox" name="p1" id="p1" class="purpose" value="1" />1 <br />
+          <input type="checkbox" name="p2" id="p2" class="purpose" value="2" />2 <br />
+          <input type="checkbox" name="p3" id="p3" class="purpose" value="3" />3 <br />
+          <input type="checkbox" name="p4" id="p4" class="purpose" value="4" />4 <br />
+          <input type="checkbox" name="p5" id="p5" class="purpose" value="5" />5 <br />
+        </fieldset> 
+        <br />
+        <br />
+        <input type="reset" />
+        <input type="submit" value="Submit" />  
+      </form>
+    </div>
+  </body>
+ 
+</html>

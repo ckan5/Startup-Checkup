@@ -9,8 +9,8 @@
     <script src="grabzit.min.js"></script>
     <script>
      function pdfCreate(x) {
-      GrabzIt("YzA5NGYzZTc3NTg2NDM4YmE4MmZjNzBmYzZkNTNlYWU=").ConvertHTML(x, {"format": "pdf", "background": 0}).Create();
-    }
+    GrabzIt("YWFmNTY4Yjc1NjNmNGY0YThmNjc5N2Q2NTFlOTFlNTg=").ConvertHTML(x, {"format": "pdf", "background": 0,"download": 1, "filename":$.query.get('lname') + "_Letter.pdf"}).Create();
+}
    </script>
   </head> 
   
@@ -23,7 +23,6 @@
         <p>
           description of site purpose
           <br>
-          The link to the Delaware site can be found <a href="https://icis.corp.delaware.gov/Ecorp/EntitySearch/NameSearch.aspx">here</a>.
         </p>
       </h2>
       <h3> 
@@ -81,7 +80,7 @@
          var lname = $.query.get('lname');
          document.write(fname + " " + lname);
        </script>
-      are holders of 
+      is a holder of 
        <script> 
          var numshares = $.query.get('numshares');
          document.write(fname + " " + numshares);
@@ -90,8 +89,7 @@
        <script> 
          var cname = $.query.get('cname');
          document.write(cname);
-       </script>
-      , a Delaware corporation (the “Company”).
+       </script>, a Delaware corporation (the “Company”).
      
       <br><br>
 
@@ -205,7 +203,7 @@
     <div id="footer">
       <div class="wrapper">
         <br>
-        <button type="button" id="pdfbutton" onclick="pdfCreate(document.getElementById('letter').innerHTML)">Get PDF!</button>
+        <button type="button" id="pdfbutton" onclick="pdfCreate(document.getElementById('letter').innerHTML)">Save as PDF</button>
         <br>
       </div>
       <button onclick="window.history.back()">Go Back</button>
