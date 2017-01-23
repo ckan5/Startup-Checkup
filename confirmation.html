@@ -175,14 +175,6 @@
     </div>
    
    
-   <hr />
-  <div>
-  <h4 style="text-align:center;">Disclaimer</h4>
-  <p style="text-align:center;"> disclaimer </p>
-  </div>
-<br /> 
-<br /> 
-
     <form action="print.html" method="GET">
       <input type="hidden" name='fname' id="-fname" value="">
       <input type="hidden" name='lname' id="-lname" value="">
@@ -201,8 +193,10 @@
       <input type="hidden" name="p3" id="-p3" value="">
       <input type="hidden" name="p4" id="-p4" value="">
       <input type="hidden" name="p5" id="-p5" value="">
+     <div class="pager">
       <button onclick="window.history.back()">Go Back</button>
       <input type="submit" value="Submit">
+     </div>
     </form>
 
     <script>
@@ -224,7 +218,15 @@
     document.getElementById("-p4").value = $.query.get('p4');
     document.getElementById("-p5").value = $.query.get('p5');
     </script>
-    
+
+      <hr />
+  <div>
+  <h4 style="text-align:center;">Disclaimer</h4>
+  <p style="text-align:center;"> disclaimer </p>
+  </div>
+<br /> 
+<br /> 
+   
   </body> 
    
 </html> 
