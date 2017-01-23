@@ -55,12 +55,15 @@
     
     <h3>See your letter below and print it as a PDF!</h3>
    <div class="container">
-    <h3>Next steps: </h3>
+    <h4>Next steps: </h4>
      <ol>
       <li></li>
      </ol>
    </div>
      
+   <br />
+   <br />
+   
     <div id="letter">
       <h3>Demand for Inspection of Corporate Books and Records</h3>
       <div id="cname_">
@@ -224,14 +227,16 @@
 
     </div>
         
-    <div id="footer">
+    <div id="pager">
+       <button onclick="window.history.back()">Go Back</button>
+   </div>
+   <br />
+   <br />
       <div class="wrapper">
         <br>
         <button type="button" id="pdfbutton" onclick="pdfCreate(document.getElementById('letter').innerHTML)">Save as PDF</button>
         <br>
       </div>
-      <button onclick="window.history.back()">Go Back</button>
-    </div>
      
       <hr />
   <div>
