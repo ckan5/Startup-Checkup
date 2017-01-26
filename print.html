@@ -115,7 +115,18 @@
          var lname = $.query.get('lname');
          document.write(fname + " " + lname);
        </script>
-      is a holder of 
+      is a
+      <script>
+        var owner = $.query.get('owner');
+        if (owner == "Record Owner") {
+          document.write("record");
+        }
+        else if (owner == "Beneficial Owner") {
+          document.write("beneficial");
+        }
+      </script>
+
+       holder of 
        <script> 
          var numshares = $.query.get('shares');
          numshares = numshares.toLocaleString();
@@ -183,7 +194,7 @@
         </div>
       </div>
 
-      The undersigned also states that he has never sold nor offered for sale any list of shareholders of any corporation, nor assisted any person in obtaining such list or record for such purposes.
+      The undersigned also states that he has never sold nor offered for sale any list of shareholders of any corporation, nor assisted any person in obtaining such list or record for such purposes. Any attachment to this letter is a true and correct copy of what it purports to be.
       <br>
       <br>
       Please have your counsel advise 
@@ -235,10 +246,9 @@
     <div class="pager">
        <button onclick="window.history.back()">Go Back</button>
    </div>
-   <br />
       <div class="wrapper">
         <br>
-        <button type="button" id="pdfbutton" onclick="pdfCreate(document.getElementById('letter').innerHTML)">Save as PDF</button>
+        <button type="button"  onclick="pdfCreate(document.getElementById('letter').innerHTML)">Save as PDF</button>
         <br>
       </div>
      
