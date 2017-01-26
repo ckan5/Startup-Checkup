@@ -84,7 +84,7 @@
         <br />
         Last Name: <input type="text" name="lname" id="lname" value="" required />
         <br />
-        Phone number: <input type="text" name="tel" id="tel" value="" required onkeyup="this.value=this.value.replace(/[^\d]/,'')"/>
+        Phone number: <input type="tel" name="tel" id="tel" value="" required onkeyup="this.value=this.value.replace(/[^\d]/,'')"/>
         <br />
         Email: <input type="email" name="email" id="email" value="" required />
         <br />
@@ -93,10 +93,24 @@
         Number of Shares Owned: <input type="number" name="numshares" id="numshares" value="" required min="1" />
         <br />
         <br/>
-        Do you have an attorney?<input type="checkbox" id="attorneyYN" name="attorneyYN" required onchange="this.setCustomValidity(validity.valueMissing ? 'This site is not meant for those with attorneys. Please verify that you do not have an attorney.' : '');">No
+        Do you have an attorney?<input type="checkbox" id="attorneyYN" name="attorneyYN" required>No
         <script>
           document.getElementById("attorneyYN").setCustomValidity("This site is not meant for those with attorneys. Please verify that you do not have an attorney.");
         </script>
+        <br />
+        <br />
+        Are you the beneficial owner or the record owner of these shares?
+        <select name="owner" id="owner">
+          <option value="">Please choose</option>
+          <option value="Record Owner">Record Owner</option>
+          <option value="Beneficial Owner">Beneficial Owner</option>
+        </select>
+        <script>
+          document.getElementById("owner").setCustomValidity("You need to choose a type of ownership.");
+        </script>
+        <div class="help-tip">
+          <span>A record owner of a stock is the person who is listed on the company's stockholder ledger as a stockholder. <br><br> A beneficial owner is someone who does not own the stock in their name but still receives a benefit from it. For example, you would be the beneficial owner of a stock if you controlled a legal entity that owned the shares in question.</span>
+        </div>
         <br/>
         <br/>
         <fieldset>
@@ -124,11 +138,11 @@
         <br/>
         <fieldset>
           <legend>Purpose</legend>
-          <input type="checkbox" name="p1" id="p1" class="purpose" value="1" />1 <br />
-          <input type="checkbox" name="p2" id="p2" class="purpose" value="2" />2 <br />
-          <input type="checkbox" name="p3" id="p3" class="purpose" value="3" />3 <br />
-          <input type="checkbox" name="p4" id="p4" class="purpose" value="4" />4 <br />
-          <input type="checkbox" name="p5" id="p5" class="purpose" value="5" />5 <br />
+          <input type="checkbox" name="p1" id="p1" class="purpose" value="To investigate corporate mismanagement." /> To investigate corporate mismanagement. <br />
+          <input type="checkbox" name="p2" id="p2" class="purpose" value="To help in the valuation of shares in order to facilitate and negotiate a fair sale of stock." /> To help in the valuation of shares in order to facilitate and negotiate a fair sale of stock. <br />
+          <input type="checkbox" name="p3" id="p3" class="purpose" value="To explore director disinterestedness and independence." /> To explore director disinterestedness and independence. <br />
+          <input type="checkbox" name="p4" id="p4" class="purpose" value="To aid in pleading demand futility in a complaint for a derivative action." /> To aid in pleading demand futility in a complaint for a derivative action. <br />
+          <input type="checkbox" name="p5" id="p5" class="purpose" value="5" /> Other: <br />
         </fieldset> 
         <br />
         <br />

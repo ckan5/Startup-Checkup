@@ -9,12 +9,12 @@
    <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
     <script src="jquery-3.1.1.min.js"></script>
-    <script src="jquery.query-object.js"></script>
+    
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+    <script src="jquery.query-object.js"></script>
    <script src="grabzit.min.js"></script>
     <script>
      function pdfCreate(x) {
@@ -62,7 +62,10 @@
    <div class="container">
     <h4>Next steps: </h4>
      <ol>
-      <li></li>
+      <li>You need to get this letter notarized so that your identity can be verified.</li>
+      <li>Along with this letter, you need to attach proof of stock ownership that is reasonably timely, such as an account statement from a couple of days before that includes these shares.</li>
+      <li>Mail this letter to the Delaware address that you found previously. If your company has a headquarters somewhere, you can mail it there too.</li>
+      <li>If the company rejects your request for an inspection, seek out legal counsel on your next steps. If you're committed to reviewing these records, a lawsuit might be the next step, but only a qualified attorney can help with that.</li>
      </ol>
    </div>
      
@@ -115,7 +118,8 @@
       is a holder of 
        <script> 
          var numshares = $.query.get('shares');
-         document.write(fname + " " + numshares);
+         numshares = numshares.toLocaleString();
+         document.write(numshares);
        </script>    
       shares of 
        <script> 
@@ -132,16 +136,6 @@
          document.write(fname + " " + lname);
        </script>
        hereby demands the right (by its attorneys, consultants, or other agents), during the usual hours of business, to inspect the following books and records of the Company and to make copies or extracts therefrom.
-
-      <div id="letterintro">
-        <script>
-          var fname = $.query.get('fname');
-          var lname = $.query.get('lname');
-          var numshares = $.query.get('numshares');
-          var cname = $.query.get('cname');
-          document.write("The undersigned, " + fname + " " + lname + ", holds " + numshares + " shares in " + cname + " and formally requests the corporation's books and records.");
-        </script>
-      </div>
       <br> 
       Here are the following reasons for the request:
       <br>
@@ -205,10 +199,16 @@
          document.write(fname + " " + lname + " ");
        </script>
        can be reached at 
+       <div id="tel" class="phone" style="display:inline">
        <script> 
          var tel = $.query.get('tel');
-         document.write("(" + tel[0-2] + ") " + tel[3-5] + "-" tel[6-8] + " ");
+         document.getElementById("tel").innerHTML = $.query.get('tel');
+          $(".phone").text(function(i,text) {
+            text = text.replace(/(\d{3})(\d{3})(\d{4})/, "$1-$2-$3");
+            return text;
+          });
         </script>
+      </div>
       and e-mail 
        <script> 
          var email = $.query.get('email');

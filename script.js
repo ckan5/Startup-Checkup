@@ -29,6 +29,17 @@ function addPurposeCheck() {
   }
 }
 
+function addOwnerCheck() {
+  if (letterform.owner.value == "") {
+    letterform.owner.setCustomValidity("Need to choose type of ownership.")
+  }
+
+  else if (letterform.owner.value != "") {
+    letterform.owner.setCustomValidity("");
+    console.log("test");
+  }
+}
+
 function pdfCreate(x) {
     GrabzIt("YWFmNTY4Yjc1NjNmNGY0YThmNjc5N2Q2NTFlOTFlNTg=").ConvertHTML(x, {"format": "pdf", "background": 0}).Create();
 } 
@@ -48,6 +59,12 @@ function validateForm() {
     letterform.p1.focus();
     return false;
   }
+
+if(letterform.owner.value == "") {
+  letterform.owner.focus();
+  return false;
+}
+
   else {
     return true;
   }
@@ -58,8 +75,10 @@ window.onpageshow = function() {
   addAttorneyCheck();
   addSharesCheck();
   addPurposeCheck();
+  addOwnerCheck();
   document.getElementById("attorneyYN").addEventListener("change", addAttorneyCheck);
   document.getElementById("numshares").addEventListener("change", addSharesCheck);
+  document.getElementById("owner").addEventListener("change", addOwnerCheck);
   document.getElementById("p1").addEventListener("change", addPurposeCheck);
   document.getElementById("p2").addEventListener("change", addPurposeCheck);
   document.getElementById("p3").addEventListener("change", addPurposeCheck);

@@ -67,9 +67,13 @@
         </script>
         <br>
       </div>
-      Phone number: <div id="o_tel">
+      Phone number: <div id="o_tel" class="phone">
         <script>
           document.getElementById("o_tel").innerHTML = $.query.get('tel');
+          $(".phone").text(function(i,text) {
+            text = text.replace(/(\d{3})(\d{3})(\d{4})/, "$1-$2-$3");
+            return text;
+          })
         </script>
         <br>
       </div>
@@ -87,7 +91,16 @@
       </div>
       Number of Shares Owned: <div id="o_numshares">
         <script>
-          document.getElementById("o_numshares").innerHTML = $.query.get('numshares');
+          var numshares = $.query.get('numshares');
+          numshares = numshares.toLocaleString();
+          document.getElementById("o_numshares").innerHTML = numshares;
+        </script>
+        <br>
+      </div>
+      <br>
+       Type of Ownership: <div id="owner">
+        <script>
+          document.getElementById("owner").innerHTML = $.query.get('owner');
         </script>
         <br>
       </div>
