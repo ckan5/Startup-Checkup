@@ -149,10 +149,11 @@
       <br>
       <fieldset>
         <legend>Purpose: </legend>
+        <ol>
         <div id="p1_">
           <script>
             if ($.query.get('p1')) {
-              document.getElementById("p1_").innerHTML = $.query.get('p1');
+              document.getElementById("p1_").innerHTML ="<li>" + $.query.get('p1') + ", because " + $.query.get('cred') +"</li>";
               document.write("<br />");
             }
           </script>
@@ -160,7 +161,7 @@
         <div id="p2_">
           <script>
             if ($.query.get('p2')) {
-              document.getElementById("p2_").innerHTML = $.query.get('p2');
+              document.getElementById("p2_").innerHTML = "<li>" +$.query.get('p2')+"</li>";
               document.write("<br />");
             }
           </script>
@@ -168,7 +169,7 @@
         <div id="p3_">
           <script>
             if ($.query.get('p3')) {
-              document.getElementById("p3_").innerHTML = $.query.get('p3');
+              document.getElementById("p3_").innerHTML = "<li>" +$.query.get('p3')+"</li>";
               document.write("<br />");
             }
           </script>
@@ -176,7 +177,7 @@
         <div id="p4_">
           <script>
             if ($.query.get('p4')) {
-              document.getElementById("p4_").innerHTML = $.query.get('p4');
+              document.getElementById("p4_").innerHTML = "<li>" +$.query.get('p4')+"</li>";
               document.write("<br />");
             }
           </script>
@@ -184,11 +185,74 @@
         <div id="p5_">
           <script>
             if ($.query.get('p5')) {
-              document.getElementById("p5_").innerHTML = $.query.get('p5');
+              document.getElementById("p5_").innerHTML = "<li>" +$.query.get('other')+"</li>";
               document.write("<br />");
             }
           </script>
         </div>
+        <div id="p6_">
+          <script>
+            if ($.query.get('p6')) {
+              document.getElementById("p6_").innerHTML = "<li>" +$.query.get('other2')+"</li>";
+              document.write("<br />");
+            }
+          </script>
+        </div>
+        <div id="p7_">
+          <script>
+            if ($.query.get('p7')) {
+              document.getElementById("p7_").innerHTML = "<li>" +$.query.get('other3')+"</li>";
+              document.write("<br />");
+            }
+          </script>
+        </div>
+        </ol>
+      </fieldset> 
+      <br>
+      <fieldset>
+        <legend>Types of Documents Desired: </legend>
+        <ol>
+        <div id="b1_">
+          <script>
+            if ($.query.get('b1')) {
+              document.getElementById("b1_").innerHTML ="<li>" + $.query.get('b1') + "</li>";
+              document.write("<br />");
+            }
+          </script>
+        </div>
+        <div id="b2_">
+          <script>
+            if ($.query.get('b2')) {
+              document.getElementById("b2_").innerHTML = "<li>" +$.query.get('b2')+"</li>";
+              document.write("<br />");
+            }
+          </script>
+        </div>
+        <div id="b3_">
+          <script>
+            if ($.query.get('b3')) {
+              document.getElementById("b3_").innerHTML = "<li>" +$.query.get('b3')+"</li>";
+              document.write("<br />");
+            }
+          </script>
+        </div>
+        <div id="b4_">
+          <script>
+            if ($.query.get('b4')) {
+              document.getElementById("b4_").innerHTML = "<li>" +$.query.get('b4')+"</li>";
+              document.write("<br />");
+            }
+          </script>
+        </div>
+        <div id="b5_">
+          <script>
+            if ($.query.get('b5')) {
+              document.getElementById("b5_").innerHTML = "<li>" +$.query.get('b5')+"</li>";
+              document.write("<br />");
+            }
+          </script>
+        </div>
+        </ol>
       </fieldset> 
       <br>
     </div>
@@ -209,10 +273,18 @@
       <input type="hidden" name='country' id="-country" value="">
       <input type="hidden" name='zip' id="-zip" value="">
       <input type="hidden" name="p1" id="-p1" value="">
+      <input type="hidden" name="cred" id="-cred" value="">
       <input type="hidden" name="p2" id="-p2" value="">
       <input type="hidden" name="p3" id="-p3" value="">
       <input type="hidden" name="p4" id="-p4" value="">
       <input type="hidden" name="p5" id="-p5" value="">
+      <input type="hidden" name="p6" id="-p6" value="">
+      <input type="hidden" name="p7" id="-p7" value="">
+      <input type="hidden" name="b1" id="-b1" value="">
+      <input type="hidden" name="b2" id="-b2" value="">
+      <input type="hidden" name="b3" id="-b3" value="">
+      <input type="hidden" name="b4" id="-b4" value="">
+      <input type="hidden" name="b5" id="-b5" value="">
      <div class="pager">
       <button onclick="window.history.back()">Go Back</button>
       <input type="submit" value="Submit">
@@ -234,17 +306,30 @@
     document.getElementById("-country").value = $.query.get('country');
     document.getElementById("-zip").value = $.query.get('zip');
     document.getElementById("-p1").value = $.query.get('p1');
+    document.getElementById("-cred").value = $.query.get('cred');
     document.getElementById("-p2").value = $.query.get('p2');
     document.getElementById("-p3").value = $.query.get('p3');
     document.getElementById("-p4").value = $.query.get('p4');
-    document.getElementById("-p5").value = $.query.get('p5');
+    if ($.query.get('p5') == true) {
+      document.getElementById("-p5").value = $.query.get('other');
+    }
+    if ($.query.get('p6') == true) {
+      document.getElementById("-p6").value = $.query.get('other2');
+    }
+    if ($.query.get('p7') == true) {
+      document.getElementById("-p7").value = $.query.get('other3');
+    }
+    document.getElementById("-b1").value = $.query.get('b1');
+    document.getElementById("-b2").value = $.query.get('b2');
+    document.getElementById("-b3").value = $.query.get('b3');
+    document.getElementById("-b4").value = $.query.get('b4');
+    document.getElementById("-b5").value = $.query.get('b5');
     </script>
 
       <hr />
   <div>
   <h4 style="text-align:center;">Disclaimer</h4>
-  <p style="text-align:center;"> disclaimer </p>
-  <p style="text-align:center;">The full disclaimer can be found <a href="disclaimer.html">here</a>.</p>
+  <p style="text-align:center;">This is not meant to replace legal advice. See a lawyer if you have more questions. Our full disclaimer can be found <a href="disclaimer.html">here</a>.</p>
   </div>
 <br /> 
 <br /> 
