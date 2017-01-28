@@ -62,14 +62,12 @@
         </script>
         <br>
       </div>
-      <br>
       <span class="labels">Last Name:</span> <div id="o_lname">
         <script>
           document.getElementById("o_lname").innerHTML = $.query.get('lname');
         </script>
         <br>
       </div>
-      <br>
       <span class="labels">Phone number:</span> <div id="o_tel" class="phone">
         <script>
           document.getElementById("o_tel").innerHTML = $.query.get('tel');
@@ -80,21 +78,18 @@
         </script>
         <br>
       </div>
-      <br>
       <span class="labels">Email:</span> <div id="o_email">
         <script>
           document.getElementById("o_email").innerHTML = $.query.get('email');
         </script>
         <br>
       </div>
-      <br>
       <span class="labels">Company Name:</span> <div id="o_cname">
         <script>
           document.getElementById("o_cname").innerHTML = $.query.get('cname');
         </script>
         <br>
       </div>
-      <br>
       <span class="labels">Number of Shares Owned:</span> <div id="o_numshares">
         <script>
           var numshares = $.query.get('numshares');
@@ -103,7 +98,6 @@
         </script>
         <br>
       </div>
-      <br>
        <span class="labels">Type of Ownership:</span> <div id="owner">
         <script>
           document.getElementById("owner").innerHTML = $.query.get('owner');
@@ -116,16 +110,14 @@
         <span class="labels">Street:</span> <div id="o_street">
           <script>
             document.getElementById("o_street").innerHTML = $.query.get('street');
-          </script>
-          <br>
+          </script>        
         </div>
         <div id="o_street2">
           <script>
           if ($.query.get('secondary') !== true ) {
-               document.getElementById("o_street2").innerHTML = $.query.get('secondary');
+               document.getElementById("o_street2").innerHTML =  $.query.get('secondary') + "<br>";
             }
           </script>
-          <br>
         </div>
         <span class="labels">City:</span> <div id="o_city">
           <script>
