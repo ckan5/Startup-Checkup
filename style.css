@@ -12,6 +12,13 @@ h3 {
   text-align: center;
 }
 
+.labels {
+  display: inline;
+  font-weight: bold;
+}
+
+
+
 #letter {
   border:solid grey;
   border-radius: 3px;

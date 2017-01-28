@@ -55,19 +55,22 @@
    </div>
      
    <div class="container">
-     First Name: <div id="o_fname">
+    <legend>Personal Information</legend>
+     <span class="labels">First Name:</span> <div id="o_fname">
         <script>
           document.getElementById("o_fname").innerHTML = $.query.get('fname');
         </script>
         <br>
       </div>
-      Last Name: <div id="o_lname">
+      <br>
+      <span class="labels">Last Name:</span> <div id="o_lname">
         <script>
           document.getElementById("o_lname").innerHTML = $.query.get('lname');
         </script>
         <br>
       </div>
-      Phone number: <div id="o_tel" class="phone">
+      <br>
+      <span class="labels">Phone number:</span> <div id="o_tel" class="phone">
         <script>
           document.getElementById("o_tel").innerHTML = $.query.get('tel');
           $(".phone").text(function(i,text) {
@@ -77,19 +80,22 @@
         </script>
         <br>
       </div>
-      Email: <div id="o_email">
+      <br>
+      <span class="labels">Email:</span> <div id="o_email">
         <script>
           document.getElementById("o_email").innerHTML = $.query.get('email');
         </script>
         <br>
       </div>
-      Company Name: <div id="o_cname">
+      <br>
+      <span class="labels">Company Name:</span> <div id="o_cname">
         <script>
           document.getElementById("o_cname").innerHTML = $.query.get('cname');
         </script>
         <br>
       </div>
-      Number of Shares Owned: <div id="o_numshares">
+      <br>
+      <span class="labels">Number of Shares Owned:</span> <div id="o_numshares">
         <script>
           var numshares = $.query.get('numshares');
           numshares = numshares.toLocaleString();
@@ -98,7 +104,7 @@
         <br>
       </div>
       <br>
-       Type of Ownership: <div id="owner">
+       <span class="labels">Type of Ownership:</span> <div id="owner">
         <script>
           document.getElementById("owner").innerHTML = $.query.get('owner');
         </script>
@@ -106,8 +112,8 @@
       </div>
       <br>
       <fieldset>
-        <legend>Company Address: </legend>
-        Street: <div id="o_street">
+        <legend>Company Address</legend>
+        <span class="labels">Street:</span> <div id="o_street">
           <script>
             document.getElementById("o_street").innerHTML = $.query.get('street');
           </script>
@@ -121,25 +127,25 @@
           </script>
           <br>
         </div>
-        City: <div id="o_city">
+        <span class="labels">City:</span> <div id="o_city">
           <script>
             document.getElementById("o_city").innerHTML = $.query.get('city');
          </script>
          <br>
         </div>
-        State: <div id="o_state">
+        <span class="labels">State:</span> <div id="o_state">
           <script>
             document.getElementById("o_state").innerHTML = $.query.get('state');
           </script>
           <br>
         </div>
-        Country: <div id="o_country">
+        <span class="labels">Country:</span> <div id="o_country">
           <script>
             document.getElementById("o_country").innerHTML = $.query.get('country');
           </script>
           <br>
         </div>
-        Postal Code: <div id="o_zip">
+        <span class="labels">Postal Code:</span> <div id="o_zip">
           <script>
             document.getElementById("o_zip").innerHTML = $.query.get('zip');
           </script>
@@ -153,7 +159,7 @@
         <div id="p1_">
           <script>
             if ($.query.get('p1')) {
-              document.getElementById("p1_").innerHTML ="<li>" + $.query.get('p1') + ", because " + $.query.get('cred') +"</li>";
+              document.getElementById("p1_").innerHTML ="<li>" + $.query.get('p1') + ", for the following reason(s): " + $.query.get('cred') +"</li>";
               document.write("<br />");
             }
           </script>
