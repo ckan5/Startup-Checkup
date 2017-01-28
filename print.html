@@ -5,12 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script data-require="jquery@3.0.0" data-semver="3.0.0" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.js"></script>
-
-   <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
-    <script src="jquery-3.1.1.min.js"></script>
-    
-
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -18,7 +14,7 @@
    <script src="grabzit.min.js"></script>
     <script>
      function pdfCreate(x) {
-    GrabzIt("YWFmNTY4Yjc1NjNmNGY0YThmNjc5N2Q2NTFlOTFlNTg=").ConvertHTML(x, {"format": "pdf", "background": 0,"download": 1, "filename":$.query.get('lname') + "_Letter.pdf"}).Create();
+    GrabzIt("YWFmNTY4Yjc1NjNmNGY0YThmNjc5N2Q2NTFlOTFlNTg=").ConvertHTML(x, {"format": "pdf", "background": 0,"download": 1, "filename":$.query.get('lname') + "_Letter.pdf", "mtop": 40, "mleft":50, "mbottom": 65, "mright": 50, "templateid": "Letter_Template"}).Create();
 }
    </script>
   </head> 
@@ -55,7 +51,7 @@
    
     <div class="container">
   <div class="page-header">
-    <h1>See your letter below and print it as a PDF!</h1>      
+    <h1>See your letter below and save it as a PDF!</h1>      
   </div>
     </div>
    
@@ -73,8 +69,7 @@
    <br />
    
     <div id="letter">
-      <div style="padding: 50px">
-      <h3 style="padding-top:-50px">Demand for Inspection of Corporate Books and Records</h3>
+      <h3>Demand for Inspection of Corporate Books and Records</h3>
       <br>
       <div id="cname_">
         <script>
@@ -259,7 +254,6 @@
         </div>
         </ul>
       </div>
-
       The undersigned also states that he has never sold nor offered for sale any list of shareholders of any corporation, nor assisted any person in obtaining such list or record for such purposes. Any attachment to this letter is a true and correct copy of what it purports to be.
       <br>
       <br>
@@ -308,7 +302,6 @@
           document.write(fname + " " + lname);
         </script>
       </div>
-    </div>
     </div>
         
     <div class="pager">
