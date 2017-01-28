@@ -32,14 +32,6 @@ div.wrapper {
    text-align: center;
 }
 
-.firstpgcontainer {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-
-}
-
 .help-tip{
   position: relative;
   display: inline-block;
