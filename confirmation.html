@@ -1,25 +1,22 @@
 <!DOCTYPE html>
 <html>
  
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script data-require="jquery@3.0.0" data-semver="3.0.0" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.js"></script>
-    <script src="jquery-3.1.1.min.js"></script>
-    
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
-    <script src="grabzit.min.js"></script>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script data-require="jquery@3.0.0" data-semver="3.0.0" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="script.js"></script>
+  <script src="grabzit.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="jquery.query-object.js"></script>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="jquery.query-object.js"></script>
-
-  </head> 
+</head> 
   
-  <body>
-  <nav class="navbar navbar-inverse">
+<body>
+<nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand" href="index.html">Startup Checkup</a>
@@ -38,7 +35,7 @@
   </div>
 </nav>
    
-   <div class="container">
+<div class="container">
   <p>Progress</p>
   <div class="progress">
     <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width:75%">
@@ -48,291 +45,304 @@
 </div>
    
     
-    <div class="container">
-     <div class="page-header">
-       <h1>Verify your Information</h1>      
-     </div>
-   </div>
-     
-   <div class="container">
-    <legend>Personal Information</legend>
-     <span class="labels">First Name:</span> <div id="o_fname">
-        <script>
-          document.getElementById("o_fname").innerHTML = $.query.get('fname');
-        </script>
-        <br>
-      </div>
-      <span class="labels">Last Name:</span> <div id="o_lname">
-        <script>
-          document.getElementById("o_lname").innerHTML = $.query.get('lname');
-        </script>
-        <br>
-      </div>
-      <span class="labels">Phone number:</span> <div id="o_tel" class="phone">
-        <script>
-          document.getElementById("o_tel").innerHTML = $.query.get('tel');
-          $(".phone").text(function(i,text) {
-            text = text.replace(/(\d{3})(\d{3})(\d{4})/, "$1-$2-$3");
-            return text;
-          })
-        </script>
-        <br>
-      </div>
-      <span class="labels">Email:</span> <div id="o_email">
-        <script>
-          document.getElementById("o_email").innerHTML = $.query.get('email');
-        </script>
-        <br>
-      </div>
-      <span class="labels">Company Name:</span> <div id="o_cname">
-        <script>
-          document.getElementById("o_cname").innerHTML = $.query.get('cname');
-        </script>
-        <br>
-      </div>
-      <span class="labels">Number of Shares Owned:</span> <div id="o_numshares">
-        <script>
-          var numshares = $.query.get('numshares');
-          numshares = numshares.toLocaleString();
-          document.getElementById("o_numshares").innerHTML = numshares;
-        </script>
-        <br>
-      </div>
-       <span class="labels">Type of Ownership:</span> <div id="owner">
-        <script>
-          document.getElementById("owner").innerHTML = $.query.get('owner');
-        </script>
-        <br>
-      </div>
-      <br>
-      <fieldset>
-        <legend>Company Address</legend>
-        <span class="labels">Street:</span> <div id="o_street">
-          <script>
-            document.getElementById("o_street").innerHTML = $.query.get('street');
-          </script>        
-        </div>
-        <div id="o_street2">
-          <script>
-          if ($.query.get('secondary') !== true ) {
-               document.getElementById("o_street2").innerHTML =  $.query.get('secondary') + "<br>";
-            }
-          </script>
-        </div>
-        <span class="labels">City:</span> <div id="o_city">
-          <script>
-            document.getElementById("o_city").innerHTML = $.query.get('city');
-         </script>
-         <br>
-        </div>
-        <span class="labels">State:</span> <div id="o_state">
-          <script>
-            document.getElementById("o_state").innerHTML = $.query.get('state');
-          </script>
-          <br>
-        </div>
-        <span class="labels">Country:</span> <div id="o_country">
-          <script>
-            document.getElementById("o_country").innerHTML = $.query.get('country');
-          </script>
-          <br>
-        </div>
-        <span class="labels">Postal Code:</span> <div id="o_zip">
-          <script>
-            document.getElementById("o_zip").innerHTML = $.query.get('zip');
-          </script>
-          <br>
-        </div>
-      </fieldset>
-      <br>
-      <fieldset>
-        <legend>Purpose: </legend>
-        <ol>
-        <div id="p1_">
-          <script>
-            if ($.query.get('p1')) {
-              document.getElementById("p1_").innerHTML ="<li>" + $.query.get('p1') + ", for the following reason(s): " + $.query.get('cred') +"</li>";
-              document.write("<br />");
-            }
-          </script>
-        </div>
-        <div id="p2_">
-          <script>
-            if ($.query.get('p2')) {
-              document.getElementById("p2_").innerHTML = "<li>" +$.query.get('p2')+"</li>";
-              document.write("<br />");
-            }
-          </script>
-        </div>
-        <div id="p3_">
-          <script>
-            if ($.query.get('p3')) {
-              document.getElementById("p3_").innerHTML = "<li>" +$.query.get('p3')+"</li>";
-              document.write("<br />");
-            }
-          </script>
-        </div>
-        <div id="p4_">
-          <script>
-            if ($.query.get('p4')) {
-              document.getElementById("p4_").innerHTML = "<li>" +$.query.get('p4')+"</li>";
-              document.write("<br />");
-            }
-          </script>
-        </div>
-        <div id="p5_">
-          <script>
-            if ($.query.get('p5')) {
-              document.getElementById("p5_").innerHTML = "<li>" +$.query.get('other')+"</li>";
-              document.write("<br />");
-            }
-          </script>
-        </div>
-        <div id="p6_">
-          <script>
-            if ($.query.get('p6')) {
-              document.getElementById("p6_").innerHTML = "<li>" +$.query.get('other2')+"</li>";
-              document.write("<br />");
-            }
-          </script>
-        </div>
-        <div id="p7_">
-          <script>
-            if ($.query.get('p7')) {
-              document.getElementById("p7_").innerHTML = "<li>" +$.query.get('other3')+"</li>";
-              document.write("<br />");
-            }
-          </script>
-        </div>
-        </ol>
-      </fieldset> 
-      <br>
-      <fieldset>
-        <legend>Types of Documents Desired: </legend>
-        <ol>
-        <div id="b1_">
-          <script>
-            if ($.query.get('b1')) {
-              document.getElementById("b1_").innerHTML ="<li>" + $.query.get('b1') + "</li>";
-              document.write("<br />");
-            }
-          </script>
-        </div>
-        <div id="b2_">
-          <script>
-            if ($.query.get('b2')) {
-              document.getElementById("b2_").innerHTML = "<li>" +$.query.get('b2')+"</li>";
-              document.write("<br />");
-            }
-          </script>
-        </div>
-        <div id="b3_">
-          <script>
-            if ($.query.get('b3')) {
-              document.getElementById("b3_").innerHTML = "<li>" +$.query.get('b3')+"</li>";
-              document.write("<br />");
-            }
-          </script>
-        </div>
-        <div id="b4_">
-          <script>
-            if ($.query.get('b4')) {
-              document.getElementById("b4_").innerHTML = "<li>" +$.query.get('b4')+"</li>";
-              document.write("<br />");
-            }
-          </script>
-        </div>
-        <div id="b5_">
-          <script>
-            if ($.query.get('b5')) {
-              document.getElementById("b5_").innerHTML = "<li>" +$.query.get('b5')+"</li>";
-              document.write("<br />");
-            }
-          </script>
-        </div>
-        </ol>
-      </fieldset> 
+<div class="container">
+  <div class="page-header">
+    <h1>Verify your Information</h1>      
+  </div>
+</div>
+
+<!--Each separate div takes info from the form passed along in the URL and prints it out on this page. We used a jquery library called "jquery.query-object.js" to provide a simple function to do this. When information needs to be formatted in a certain way we found solutions online that provide us with the desired format-->
+<div class="container">
+  <legend>Personal Information</legend>
+  <span class="labels">First Name:</span>
+  <div id="o_fname">
+    <script>
+      document.getElementById("o_fname").innerHTML = $.query.get('fname');
+    </script>
+    <br>
+  </div>
+  <span class="labels">Last Name:</span> 
+  <div id="o_lname">
+    <script>
+      document.getElementById("o_lname").innerHTML = $.query.get('lname');
+    </script>
+    <br>
+  </div>
+  <span class="labels">Phone number:</span>
+  <div id="o_tel" class="phone">
+    <script>
+      document.getElementById("o_tel").innerHTML = $.query.get('tel');
+      $(".phone").text(function(i,text) {
+        text = text.replace(/(\d{3})(\d{3})(\d{4})/, "$1-$2-$3");
+        return text;
+      })
+    </script>
+    <br>
+  </div>
+  <span class="labels">Email:</span>
+  <div id="o_email">
+    <script>
+      document.getElementById("o_email").innerHTML = $.query.get('email');
+    </script>
+    <br>
+  </div>
+  <span class="labels">Company Name:</span>
+  <div id="o_cname">
+    <script>
+      document.getElementById("o_cname").innerHTML = $.query.get('cname');
+    </script>
+    <br>
+  </div>
+  <span class="labels">Number of Shares Owned:</span>
+  <div id="o_numshares">
+    <script>
+      var numshares = $.query.get('numshares');
+      numshares = numshares.toLocaleString();
+      document.getElementById("o_numshares").innerHTML = numshares;
+    </script>
+    <br>
+  </div>
+  <span class="labels">Type of Ownership:</span>
+  <div id="owner">
+    <script>
+      document.getElementById("owner").innerHTML = $.query.get('owner');
+    </script>
+    <br>
+  </div>
+  <br>
+  <fieldset>
+    <legend>Company Address</legend>
+    <span class="labels">Street:</span> 
+    <div id="o_street">
+      <script>
+        document.getElementById("o_street").innerHTML = $.query.get('street');
+      </script>        
+    </div>
+    <div id="o_street2">
+      <script>
+      if ($.query.get('secondary') !== true ) {
+           document.getElementById("o_street2").innerHTML =  $.query.get('secondary') + "<br>";
+        }
+      </script>
+    </div>
+    <span class="labels">City:</span>
+    <div id="o_city">
+      <script>
+        document.getElementById("o_city").innerHTML = $.query.get('city');
+     </script>
+     <br>
+    </div>
+    <span class="labels">State:</span>
+    <div id="o_state">
+      <script>
+        document.getElementById("o_state").innerHTML = $.query.get('state');
+      </script>
       <br>
     </div>
+    <span class="labels">Country:</span>
+    <div id="o_country">
+      <script>
+        document.getElementById("o_country").innerHTML = $.query.get('country');
+      </script>
+      <br>
+    </div>
+    <span class="labels">Postal Code:</span>
+    <div id="o_zip">
+      <script>
+        document.getElementById("o_zip").innerHTML = $.query.get('zip');
+      </script>
+      <br>
+    </div>
+  </fieldset>
+  <br>
+  <fieldset>
+    <!-- Presents the purposes in a numbered list; each point checks whether such information was passed on and only prints it if it was chosen or provided by the user.-->
+    <legend>Purpose: </legend>
+    <ol>
+      <div id="p1_">
+        <script>
+          if ($.query.get('p1')) {
+            document.getElementById("p1_").innerHTML ="<li>" + $.query.get('p1') + ", for the following reason(s): " + $.query.get('cred') +"</li>";
+            document.write("<br />");
+          }
+        </script>
+      </div>
+      <div id="p2_">
+        <script>
+          if ($.query.get('p2')) {
+            document.getElementById("p2_").innerHTML = "<li>" +$.query.get('p2')+"</li>";
+            document.write("<br />");
+          }
+        </script>
+      </div>
+      <div id="p3_">
+        <script>
+          if ($.query.get('p3')) {
+            document.getElementById("p3_").innerHTML = "<li>" +$.query.get('p3')+"</li>";
+            document.write("<br />");
+          }
+        </script>
+      </div>
+      <div id="p4_">
+        <script>
+          if ($.query.get('p4')) {
+            document.getElementById("p4_").innerHTML = "<li>" +$.query.get('p4')+"</li>";
+            document.write("<br />");
+          }
+        </script>
+      </div>
+      <div id="p5_">
+        <script>
+          if ($.query.get('p5')) {
+            document.getElementById("p5_").innerHTML = "<li>" +$.query.get('other')+"</li>";
+            document.write("<br />");
+          }
+        </script>
+      </div>
+      <div id="p6_">
+        <script>
+          if ($.query.get('p6')) {
+            document.getElementById("p6_").innerHTML = "<li>" +$.query.get('other2')+"</li>";
+            document.write("<br />");
+          }
+        </script>
+      </div>
+      <div id="p7_">
+        <script>
+          if ($.query.get('p7')) {
+            document.getElementById("p7_").innerHTML = "<li>" +$.query.get('other3')+"</li>";
+            document.write("<br />");
+          }
+        </script>
+      </div>
+    </ol>
+  </fieldset> 
+  <br>
+  <fieldset>
+    <!-- As we did for the purposes we did the same for the types of documents. -->
+    <legend>Types of Documents Desired: </legend>
+    <ol>
+    <div id="b1_">
+      <script>
+        if ($.query.get('b1')) {
+          document.getElementById("b1_").innerHTML ="<li>" + $.query.get('b1') + "</li>";
+          document.write("<br />");
+        }
+      </script>
+    </div>
+    <div id="b2_">
+      <script>
+        if ($.query.get('b2')) {
+          document.getElementById("b2_").innerHTML = "<li>" +$.query.get('b2')+"</li>";
+          document.write("<br />");
+        }
+      </script>
+    </div>
+    <div id="b3_">
+      <script>
+        if ($.query.get('b3')) {
+          document.getElementById("b3_").innerHTML = "<li>" +$.query.get('b3')+"</li>";
+          document.write("<br />");
+        }
+      </script>
+    </div>
+    <div id="b4_">
+      <script>
+        if ($.query.get('b4')) {
+          document.getElementById("b4_").innerHTML = "<li>" +$.query.get('b4')+"</li>";
+          document.write("<br />");
+        }
+      </script>
+    </div>
+    <div id="b5_">
+      <script>
+        if ($.query.get('b5')) {
+          document.getElementById("b5_").innerHTML = "<li>" +$.query.get('b5')+"</li>";
+          document.write("<br />");
+        }
+      </script>
+    </div>
+    </ol>
+  </fieldset> 
+<br>
+</div>
    
-   
-    <form action="print.html" method="GET">
-      <input type="hidden" name='fname' id="-fname" value="">
-      <input type="hidden" name='lname' id="-lname" value="">
-      <input type="hidden" name='tel' id="-tel" value="">
-      <input type="hidden" name='owner' id="-owner" value="">
-      <input type="hidden" name='email' id="-email" value="">
-      <input type="hidden" name='cname' id="-cname" value="">
-      <input type="hidden" name='shares' id="-numshares" value="">
-      <input type="hidden" name='street' id="-street" value="">
-      <input type="hidden" name='street2' id="-street2" value="">
-      <input type="hidden" name='city' id="-city" value="">
-      <input type="hidden" name='state' id="-state" value="">
-      <input type="hidden" name='country' id="-country" value="">
-      <input type="hidden" name='zip' id="-zip" value="">
-      <input type="hidden" name="p1" id="-p1" value="">
-      <input type="hidden" name="cred" id="-cred" value="">
-      <input type="hidden" name="p2" id="-p2" value="">
-      <input type="hidden" name="p3" id="-p3" value="">
-      <input type="hidden" name="p4" id="-p4" value="">
-      <input type="hidden" name="p5" id="-p5" value="">
-      <input type="hidden" name="p6" id="-p6" value="">
-      <input type="hidden" name="p7" id="-p7" value="">
-      <input type="hidden" name="b1" id="-b1" value="">
-      <input type="hidden" name="b2" id="-b2" value="">
-      <input type="hidden" name="b3" id="-b3" value="">
-      <input type="hidden" name="b4" id="-b4" value="">
-      <input type="hidden" name="b5" id="-b5" value="">
-     <div class="pager">
-      <button onclick="window.history.back()">Go Back</button>
-      <input type="submit" value="Submit">
-     </div>
-    </form>
-
-    <script>
-    document.getElementById("-fname").value = $.query.get('fname');
-    document.getElementById("-lname").value = $.query.get('lname');
-    document.getElementById("-tel").value = $.query.get('tel');
-    document.getElementById("-owner").value = $.query.get('owner');
-    document.getElementById("-email").value = $.query.get('email');
-    document.getElementById("-cname").value = $.query.get('cname');
-    document.getElementById("-numshares").value = $.query.get('numshares');
-    document.getElementById("-street").value = $.query.get('street');
-    document.getElementById("-street2").value = $.query.get('secondary');
-    document.getElementById("-city").value = $.query.get('city');
-    document.getElementById("-state").value = $.query.get('state');
-    document.getElementById("-country").value = $.query.get('country');
-    document.getElementById("-zip").value = $.query.get('zip');
-    document.getElementById("-p1").value = $.query.get('p1');
-    document.getElementById("-cred").value = $.query.get('cred');
-    document.getElementById("-p2").value = $.query.get('p2');
-    document.getElementById("-p3").value = $.query.get('p3');
-    document.getElementById("-p4").value = $.query.get('p4');
-    if ($.query.get('p5') == true) {
-      document.getElementById("-p5").value = $.query.get('other');
-    }
-    if ($.query.get('p6') == true) {
-      document.getElementById("-p6").value = $.query.get('other2');
-    }
-    if ($.query.get('p7') == true) {
-      document.getElementById("-p7").value = $.query.get('other3');
-    }
-    document.getElementById("-b1").value = $.query.get('b1');
-    document.getElementById("-b2").value = $.query.get('b2');
-    document.getElementById("-b3").value = $.query.get('b3');
-    document.getElementById("-b4").value = $.query.get('b4');
-    document.getElementById("-b5").value = $.query.get('b5');
-    </script>
-
-      <hr />
-  <div>
-  <h4 style="text-align:center;">Disclaimer</h4>
-  <p style="text-align:center;">This is not meant to replace legal advice. See a lawyer if you have more questions. Our full disclaimer can be found <a href="disclaimer.html">here</a>.</p>
+<!-- To transfer the information from this page on to the print page, we added a hidden form that passes on the same info as printed on this page to the next page when the user clicks on "Submit" --> 
+<form action="print.html" method="GET">
+  <input type="hidden" name='fname' id="-fname" value="">
+  <input type="hidden" name='lname' id="-lname" value="">
+  <input type="hidden" name='tel' id="-tel" value="">
+  <input type="hidden" name='owner' id="-owner" value="">
+  <input type="hidden" name='email' id="-email" value="">
+  <input type="hidden" name='cname' id="-cname" value="">
+  <input type="hidden" name='shares' id="-numshares" value="">
+  <input type="hidden" name='street' id="-street" value="">
+  <input type="hidden" name='street2' id="-street2" value="">
+  <input type="hidden" name='city' id="-city" value="">
+  <input type="hidden" name='state' id="-state" value="">
+  <input type="hidden" name='country' id="-country" value="">
+  <input type="hidden" name='zip' id="-zip" value="">
+  <input type="hidden" name="p1" id="-p1" value="">
+  <input type="hidden" name="cred" id="-cred" value="">
+  <input type="hidden" name="p2" id="-p2" value="">
+  <input type="hidden" name="p3" id="-p3" value="">
+  <input type="hidden" name="p4" id="-p4" value="">
+  <input type="hidden" name="p5" id="-p5" value="">
+  <input type="hidden" name="p6" id="-p6" value="">
+  <input type="hidden" name="p7" id="-p7" value="">
+  <input type="hidden" name="b1" id="-b1" value="">
+  <input type="hidden" name="b2" id="-b2" value="">
+  <input type="hidden" name="b3" id="-b3" value="">
+  <input type="hidden" name="b4" id="-b4" value="">
+  <input type="hidden" name="b5" id="-b5" value="">
+  <div class="pager">
+    <button onclick="window.history.back()">Go Back</button>
+    <input type="submit" value="Submit">
   </div>
-<br /> 
-<br /> 
-   
-  </body> 
-   
+</form>
+
+<script>
+  document.getElementById("-fname").value = $.query.get('fname');
+  document.getElementById("-lname").value = $.query.get('lname');
+  document.getElementById("-tel").value = $.query.get('tel');
+  document.getElementById("-owner").value = $.query.get('owner');
+  document.getElementById("-email").value = $.query.get('email');
+  document.getElementById("-cname").value = $.query.get('cname');
+  document.getElementById("-numshares").value = $.query.get('numshares');
+  document.getElementById("-street").value = $.query.get('street');
+  document.getElementById("-street2").value = $.query.get('secondary');
+  document.getElementById("-city").value = $.query.get('city');
+  document.getElementById("-state").value = $.query.get('state');
+  document.getElementById("-country").value = $.query.get('country');
+  document.getElementById("-zip").value = $.query.get('zip');
+  document.getElementById("-p1").value = $.query.get('p1');
+  document.getElementById("-cred").value = $.query.get('cred');
+  document.getElementById("-p2").value = $.query.get('p2');
+  document.getElementById("-p3").value = $.query.get('p3');
+  document.getElementById("-p4").value = $.query.get('p4');
+  if ($.query.get('p5') == true) {
+    document.getElementById("-p5").value = $.query.get('other');
+  }
+  if ($.query.get('p6') == true) {
+    document.getElementById("-p6").value = $.query.get('other2');
+  }
+  if ($.query.get('p7') == true) {
+    document.getElementById("-p7").value = $.query.get('other3');
+  }
+  document.getElementById("-b1").value = $.query.get('b1');
+  document.getElementById("-b2").value = $.query.get('b2');
+  document.getElementById("-b3").value = $.query.get('b3');
+  document.getElementById("-b4").value = $.query.get('b4');
+  document.getElementById("-b5").value = $.query.get('b5');
+</script>
+
+<hr>
+  <div>
+    <h4 style="text-align:center;">Disclaimer</h4>
+    <p style="text-align:center;">This is not meant to replace legal advice. See a lawyer if you have more questions. Our full disclaimer can be found <a href="disclaimer.html">here</a>.</p>
+  </div>
+<br> 
+<br> 
+</body> 
 </html> 
  
