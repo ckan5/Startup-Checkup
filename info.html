@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script data-require="jquery@3.0.0" data-semver="3.0.0" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.js"></script>
     <link rel="stylesheet" href="style.css" />
-    <script src="grabzit.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -89,16 +88,13 @@
             <br> Number of Shares Owned: <input type="number" name="numshares" id="numshares" value="" required min="1">
             <br>
             <br> Do you have an attorney? <input type="checkbox" id="attorneyYN" name="attorneyYN" required> No
-            <script>
-                document.getElementById("attorneyYN").setCustomValidity("This site is not meant for those with attorneys. Please verify that you do not have an attorney.");
-            </script>
             <br>
             <br> Are you the beneficial owner or the record owner of these shares?
             <select name="owner" id="owner">
-        <option value="">Please choose</option>
-        <option value="Record Owner">Record Owner</option>
-        <option value="Beneficial Owner">Beneficial Owner</option>
-      </select>
+                <option value="">Please choose</option>
+                <option value="Record Owner">Record Owner</option>
+                <option value="Beneficial Owner">Beneficial Owner</option>
+            </select>
             <!-- We found on the internet a good-looking way to generate tips, which we added for extra clarification when it seemed appropriate. -->
             <div class="help-tip">
                 <span>A record owner of a stock is the person who is listed on the company's stockholder ledger as a stockholder. <br><br> A beneficial owner is someone who does not own the stock in their name but still receives a benefit from it. For example, you would be the beneficial owner of a stock if you controlled a legal entity that owned the shares in question.</span>
@@ -154,7 +150,7 @@
             <br>
             <br>
             <div class="pager">
-                <input type="reset">
+                <input type="reset" onClick="resetCheck()">
                 <input type="submit" value="Submit">
             </div>
         </form>

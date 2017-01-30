@@ -41,7 +41,7 @@ function addBookCheck() {
 
 function addOwnerCheck() {
   if (letterform.owner.value == "") {
-    letterform.owner.setCustomValidity("Need to choose type of ownership.")
+    letterform.owner.setCustomValidity("Need to choose type of ownership.");
   }
 
   else if (letterform.owner.value != "") {
@@ -71,23 +71,36 @@ function otherCheck(p, other) {
   if (document.getElementById(p).checked == true) {
     document.getElementById(other).required = true;
     if (document.getElementById(other).value == "") {
-      letterform.other.setCustomValidity("Need to state a purpose if you selected this option.");
+      letterform[other].setCustomValidity("Need to state a purpose if you selected this option.");
     }
     else {
-      letterform.other.setCustomValidity("");
+      letterform[other].setCustomValidity("");
     }
   }
 
   else if (document.getElementById(p).checked==false) {
     document.getElementById(other).required = false;
-    letterform.other.setCustomValidity("");
+    letterform[other].setCustomValidity("");
   }
 
 }
 
-function pdfCreate(x) {
-    GrabzIt("YWFmNTY4Yjc1NjNmNGY0YThmNjc5N2Q2NTFlOTFlNTg=").ConvertHTML(x, {"format": "pdf", "background": 0}).Create();
-} 
+//Puts all the forms in their original position after reset of the form
+function resetCheck() {
+  letterform.attorneyYN.setCustomValidity("This site is not meant for those with attorneys. Please verify that you do not have an attorney.");
+  letterform.numshares.setCustomValidity("Need more than 0 shares.");
+  letterform.p1.setCustomValidity("Need to choose at least one purpose.");
+  letterform.b1.setCustomValidity("Need to choose at least one type of document.");
+  letterform.owner.setCustomValidity("Need to choose type of ownership.");
+  letterform.cred.setCustomValidity("");
+  letterform.other.setCustomValidity("");
+  letterform.other2.setCustomValidity("");
+  letterform.other3.setCustomValidity("");
+  document.getElementById("cred").required = false;
+  document.getElementById("other").required = false;
+  document.getElementById("other2").required = false;
+  document.getElementById("other3").required = false;
+}
 
 //This adds all of the custom validity messages and adds event handlers that checks whenever the user changes an entry on the page
 window.onpageshow = function() {
@@ -124,3 +137,4 @@ window.onpageshow = function() {
   document.getElementById("b4").addEventListener("change", addBookCheck);
   document.getElementById("b5").addEventListener("change", addBookCheck);
 };
+
