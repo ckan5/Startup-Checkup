@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
- 
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script data-require="jquery@3.0.0" data-semver="3.0.0" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.js"></script>
@@ -12,303 +12,313 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="jquery.query-object.js"></script>
     <script src="grabzit.min.js"></script>
+
+    <!-- Function to create a pdf using the GrabzIt API that will be called on when the user clicks the "Get PDF!" button on the bottom of the page -->
     <script>
-     function pdfCreate(x) {
-        GrabzIt("YWFmNTY4Yjc1NjNmNGY0YThmNjc5N2Q2NTFlOTFlNTg=").ConvertHTML(x, {"format": "pdf", "background": 0,"download": 1, "filename":$.query.get('lname') + "_Letter.pdf", "mtop": 40, "mleft":50, "mbottom": 65, "mright": 50, "templateid": "Letter_Template"}).Create();
-      }
-   </script>
-  </head> 
-  
-  
+        function pdfCreate(x) {
+            GrabzIt("YWFmNTY4Yjc1NjNmNGY0YThmNjc5N2Q2NTFlOTFlNTg=").ConvertHTML(x, {
+                "format": "pdf",
+                "background": 0,
+                "download": 1,
+                "filename": $.query.get('lname') + "_Letter.pdf",
+                "mtop": 40,
+                "mleft": 50,
+                "mbottom": 65,
+                "mright": 50,
+                "templateid": "Letter_Template"
+            }).Create();
+        }
+    </script>
+</head>
+
+
 <body>
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="index.html">Startup Checkup</a>
+    <!-- Top navigation bar, using Bootstrap -->
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="index.html">Startup Checkup</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="delaware.html">Get started</a></li>
+                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">About<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="websiteDescription.html">Website Purpose</a></li>
+                        <li><a href="creators.html">About the creators</a></li>
+                    </ul>
+                </li>
+                <li><a href="disclaimer.html">Disclaimer</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Progress bar for completing the form, using Bootstrap -->
+    <div class="container">
+        <p>Progress</p>
+        <div class="progress">
+            <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%">
+                100%
+            </div>
+        </div>
     </div>
-    <ul class="nav navbar-nav">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="delaware.html">Get started</a></li>
-      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">About<span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li><a href="websiteDescription.html">Website Purpose</a></li>
-          <li><a href="creators.html">About the creators</a></li>
+
+    <div class="container">
+        <div class="page-header">
+            <h1>See your letter below and save it as a PDF!</h1>
+        </div>
+    </div>
+
+    <div class="container">
+        <h4>Next steps: </h4>
+        <ol>
+            <li>You must have this letter notarized so that your identity can be verified.</li>
+            <li>You must attach proof of stock ownership that is reasonably timely, such as an account statement from a couple of days before that includes these shares.</li>
+            <li>You must mail this letter and your proof of stock ownership to the Delaware address that you found previously. If your company has a headquarters somewhere else, you can mail it there too.</li>
+            <li>If the company rejects your request for an inspection, seek out legal counsel on your next steps. If you are committed to reviewing these records, a lawsuit might be the next step, but only a qualified attorney can help with that.</li>
+        </ol>
+    </div>
+
+    <br>
+    <br>
+
+    <!-- Everything in this letter grabs the info provided in the URL and then prints it out in the letter, as laid out. We used similar checks for the purposes and types of documents requested to see whether the user selected certain options, and we formatted details like the phone number and the number of shares just like we did on the confirmation page. The entire letter is contained in a div, which is passed onto the GrabzIt API to turn that HTML into the PDF letter we let the user download. -->
+    <div id="letter">
+        <h3>Demand for Inspection of Corporate Books and Records</h3>
+        <br>
+        <div id="cname_">
+            <script>
+                document.getElementById("cname_").innerHTML = $.query.get('cname');
+            </script>
+            <br>
+        </div>
+        <div id="caddressline1">
+            <script>
+                document.getElementById("caddressline1").innerHTML = $.query.get('street');
+                if ($.query.get('street2') !== "true") {
+                    document.write("<br>" + $.query.get('street2'));
+                }
+            </script>
+            <br>
+        </div>
+        <div id="caddressline2">
+            <script>
+                var city = $.query.get('city');
+                var state = $.query.get('state');
+                var country = $.query.get('country');
+                var zip = $.query.get('zip');
+                document.write(city + ", " + state + " " + country + " " + zip);
+            </script>
+        </div>
+        <br>
+        <script>
+            var monthNames = [
+                "January", "February", "March",
+                "April", "May", "June", "July",
+                "August", "September", "October",
+                "November", "December"
+            ];
+
+            var date = new Date();
+            var day = date.getDate();
+            var monthIndex = date.getMonth();
+            var year = date.getFullYear();
+
+            document.write(monthNames[monthIndex] + " " + day + ', ' + year);
+        </script>
+        <br>
+        <br> To Whom It May Concern:
+        <br>
+        <br>
+        <script>
+            var fname = $.query.get('fname');
+            var lname = $.query.get('lname');
+            document.write(fname + " " + lname);
+        </script>
+        is a
+        <script>
+            var owner = $.query.get('owner');
+            if (owner == "Record Owner") {
+                document.write("record");
+            } else if (owner == "Beneficial Owner") {
+                document.write("beneficial");
+            }
+        </script>
+        holder of
+        <script>
+            var numshares = $.query.get('shares');
+            numshares = numshares.toLocaleString();
+            document.write(numshares);
+        </script>
+        shares of
+        <script>
+            var cname = $.query.get('cname');
+            document.write(cname);
+        </script>, a Delaware corporation (the “Company”).
+        <br>
+        <br> Pursuant to Section 220 of the Delaware General Corporation Law,
+        <script>
+            var fname = $.query.get('fname');
+            var lname = $.query.get('lname');
+            document.write(fname + " " + lname);
+        </script>
+        hereby demands the right (by its attorneys, consultants, or other agents), during the usual hours of business, to inspect the following books and records of the Company and to make copies or extracts therefrom.
+        <br>
+        <br> Here are the following reasons for the request:
+        <br>
+        <br>
+        <ul>
+            <div id="_p1_">
+                <script>
+                    if ($.query.get('p1') !== true) {
+                        document.getElementById("_p1_").innerHTML = "<li>" + $.query.get('p1') + ", for the following reason(s): " + $.query.get("cred") + "</li>";
+                        document.write("<br />");
+                    }
+                </script>
+            </div>
+            <div id="_p2_">
+                <script>
+                    if ($.query.get('p2') !== true) {
+                        document.getElementById("_p2_").innerHTML = "<li>" + $.query.get('p2') + "</li>";
+                        document.write("<br />");
+                    }
+                </script>
+            </div>
+            <div id="_p3_">
+                <script>
+                    if ($.query.get('p3') !== true) {
+                        document.getElementById("_p3_").innerHTML = "<li>" + $.query.get('p3') + "</li>";
+                        document.write("<br />");
+                    }
+                </script>
+            </div>
+            <div id="_p4_">
+                <script>
+                    if ($.query.get('p4') !== true) {
+                        document.getElementById("_p4_").innerHTML = "<li>" + $.query.get('p4') + "</li>";
+                        document.write("<br />");
+                    }
+                </script>
+            </div>
+            <div id="_p5_">
+                <script>
+                    if ($.query.get('p5') != true) {
+                        document.getElementById("_p5_").innerHTML = "<li>" + $.query.get('p5') + "</li>";
+                        document.write("<br />");
+                    }
+                </script>
+            </div>
+            <div id="_p6_">
+                <script>
+                    if ($.query.get('p6') != true) {
+                        document.getElementById("_p6_").innerHTML = "<li>" + $.query.get('p6') + "</li>";
+                        document.write("<br />");
+                    }
+                </script>
+            </div>
+            <div id="_p7_">
+                <script>
+                    if ($.query.get('p7') != true) {
+                        document.getElementById("_p7_").innerHTML = "<li>" + $.query.get('p7') + "</li>";
+                    }
+                </script>
+            </div>
         </ul>
-      </li>
-      <li><a href="disclaimer.html">Disclaimer</a></li>
-    </ul>
-  </div>
-</nav>
-   
-<div class="container">
-  <p>Progress</p>
-  <div class="progress">
-    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%">
-      100%
+        Here are the following documents that are requested for inspection:<br><br>
+        <ul>
+            <div id="_b1_">
+                <script>
+                    if ($.query.get('b1') !== true) {
+                        document.getElementById("_b1_").innerHTML = "<li>" + $.query.get('b1') + "</li>";
+                        document.write("<br />");
+                    }
+                </script>
+            </div>
+            <div id="_b2_">
+                <script>
+                    if ($.query.get('b2') !== true) {
+                        document.getElementById("_b2_").innerHTML = "<li>" + $.query.get('b2') + "</li>";
+                        document.write("<br />");
+                    }
+                </script>
+            </div>
+            <div id="_b3_">
+                <script>
+                    if ($.query.get('b3') !== true) {
+                        document.getElementById("_b3_").innerHTML = "<li>" + $.query.get('b3') + "</li>";
+                        document.write("<br />");
+                    }
+                </script>
+            </div>
+            <div id="_b4_">
+                <script>
+                    if ($.query.get('b4') !== true) {
+                        document.getElementById("_b4_").innerHTML = "<li>" + $.query.get('b4') + "</li>";
+                        document.write("<br />");
+                    }
+                </script>
+            </div>
+        </ul>
+        The undersigned also states that he has never sold nor offered for sale any list of shareholders of any corporation, nor assisted any person in obtaining such list or record for such purposes. Any attachment to this letter is a true and correct copy of what it purports to be.
+        <br>
+        <br> Please have your counsel advise
+        <script>
+            var fname = $.query.get('fname');
+            var lname = $.query.get('lname');
+            document.write(fname + " " + lname);
+        </script>
+        where and when the aforementioned books, records and other documents will be available for inspection and copying.
+        <script>
+            var fname = $.query.get('fname');
+            var lname = $.query.get('lname');
+            document.write(fname + " " + lname + " ");
+        </script>
+        can be reached at
+        <div id="tel" class="phone" style="display:inline">
+            <script>
+                var tel = $.query.get('tel');
+                document.getElementById("tel").innerHTML = $.query.get('tel');
+                $(".phone").text(function(i, text) {
+                    text = text.replace(/(\d{3})(\d{3})(\d{4})/, "$1-$2-$3");
+                    return text;
+                });
+            </script>
+        </div>
+        and e-mail
+        <script>
+            var email = $.query.get('email');
+            document.write(email + ".");
+        </script>
+        <br>
+        <br>
+        <br> Signed,
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div id="signature line">
+            <script>
+                var fname = $.query.get('fname');
+                var lname = $.query.get('lname');
+                document.write(fname + " " + lname);
+            </script>
+        </div>
     </div>
-  </div>
-</div>
-   
-<div class="container">
-  <div class="page-header">
-    <h1>See your letter below and save it as a PDF!</h1>      
-  </div>
-</div>
-   
-<div class="container">
-  <h4>Next steps: </h4>
-  <ol>
-    <li>You must have this letter notarized so that your identity can be verified.</li>
-    <li>You must attach proof of stock ownership that is reasonably timely, such as an account statement from a couple of days before that includes these shares.</li>
-    <li>You must mail this letter and your proof of stock ownership to the Delaware address that you found previously. If your company has a headquarters somewhere else, you can mail it there too.</li>
-    <li>If the company rejects your request for an inspection, seek out legal counsel on your next steps. If you are committed to reviewing these records, a lawsuit might be the next step, but only a qualified attorney can help with that.</li>
-  </ol>
-</div>
-     
-<br>
-<br>
 
-<!-- Everything in this letter grabs the info provided in the URL and then prints it out in the letter, as laid out. We used similar checks for the purposes and types of documents requested to see whether the user selected certain options, and we formatted details like the phone number and the number of shares just like we did on the confirmation page. The entire letter is contained in a div, which is passed onto the GrabzIt API to turn that HTML into the PDF letter we let the user download. -->
-<div id="letter">
-  <h3>Demand for Inspection of Corporate Books and Records</h3>
-  <br>
-  <div id="cname_">
-    <script>
-      document.getElementById("cname_").innerHTML = $.query.get('cname');
-    </script>
+    <div class="pager">
+        <button onclick="window.history.back()">Go Back</button>
+        <button type="button" onclick="pdfCreate(document.getElementById('letter').innerHTML)">Save as PDF</button>
+    </div>
+    <hr>
+ 
+    <div>
+        <h4 style="text-align:center;">Disclaimer</h4>
+        <p style="text-align:center;">This is not meant to replace legal advice. See a lawyer if you have more questions. Our full disclaimer can be found <a href="disclaimer.html">here</a>.</p>
+    </div>
     <br>
-  </div>
-  <div id="caddressline1">
-    <script>
-      document.getElementById("caddressline1").innerHTML = $.query.get('street');
-      if ($.query.get('street2') !== "true") {
-            document.write("<br>" + $.query.get('street2'));
-      }
-    </script>
     <br>
-  </div>
-  <div id="caddressline2">
-    <script>
-      var city = $.query.get('city');
-      var state = $.query.get('state');
-      var country = $.query.get('country');
-      var zip = $.query.get('zip');
-      document.write(city + ", " + state + " " + country + " " + zip);
-    </script>
-  </div>
-  <br>
-  <script>
-    var monthNames = [
-      "January", "February", "March",
-      "April", "May", "June", "July",
-      "August", "September", "October",
-      "November", "December"
-    ];
+</body>
 
-    var date = new Date();
-    var day = date.getDate();
-    var monthIndex = date.getMonth();
-    var year = date.getFullYear();
-
-    document.write(monthNames[monthIndex] + " " +  day + ', ' + year);
-  </script>
-  <br>  
-  <br> 
-  To Whom It May Concern:
-  <br>
-  <br>
-  <script> 
-    var fname = $.query.get('fname');
-    var lname = $.query.get('lname');
-    document.write(fname + " " + lname);
-  </script>
-  is a
-  <script>
-    var owner = $.query.get('owner');
-    if (owner == "Record Owner") {
-      document.write("record");
-    }
-    else if (owner == "Beneficial Owner") {
-      document.write("beneficial");
-    }
-  </script>
-  holder of 
-  <script> 
-    var numshares = $.query.get('shares');
-    numshares = numshares.toLocaleString();
-    document.write(numshares);
-  </script>    
-  shares of 
-  <script> 
-    var cname = $.query.get('cname');
-    document.write(cname);
-  </script>, a Delaware corporation (the “Company”).
-  <br>
-  <br>
-  Pursuant to Section 220 of the Delaware General Corporation Law, 
-  <script> 
-    var fname = $.query.get('fname');
-    var lname = $.query.get('lname');
-    document.write(fname + " " + lname);
-  </script>
-  hereby demands the right (by its attorneys, consultants, or other agents), during the usual hours of business, to inspect the following books and records of the Company and to make copies or extracts therefrom.
-  <br>
-  <br> 
-  Here are the following reasons for the request:
-  <br>
-  <br>
-  <ul> 
-    <div id="_p1_">
-      <script>
-        if ($.query.get('p1') !== true) {
-        document.getElementById("_p1_").innerHTML = "<li>" + $.query.get('p1') + ", for the following reason(s): " + $.query.get("cred") + "</li>";
-        document.write("<br />");
-        }
-      </script>
-    </div>
-    <div id="_p2_">
-      <script>
-        if ($.query.get('p2') !== true) {
-          document.getElementById("_p2_").innerHTML = "<li>" +$.query.get('p2') + "</li>";
-          document.write("<br />");
-        }
-      </script>
-    </div>
-    <div id="_p3_">
-      <script>
-        if ($.query.get('p3') !== true) {
-          document.getElementById("_p3_").innerHTML = "<li>" +$.query.get('p3')+ "</li>";
-          document.write("<br />");
-        }
-      </script>
-    </div>
-    <div id="_p4_">
-      <script>
-       if ($.query.get('p4') !== true) {
-          document.getElementById("_p4_").innerHTML = "<li>" +$.query.get('p4')+ "</li>";
-          document.write("<br />");
-        }
-      </script>
-    </div>
-    <div id="_p5_">
-      <script>
-        if ($.query.get('p5') != true) {
-          document.getElementById("_p5_").innerHTML = "<li>" +$.query.get('p5')+ "</li>";
-          document.write("<br />");
-        }
-      </script>
-    </div>
-    <div id="_p6_">
-      <script>
-        if ($.query.get('p6') != true) {
-          document.getElementById("_p6_").innerHTML = "<li>" +$.query.get('p6')+ "</li>";
-          document.write("<br />");
-        }
-      </script>
-    </div>
-    <div id="_p7_">
-      <script>
-        if ($.query.get('p7') != true) {
-          document.getElementById("_p7_").innerHTML = "<li>" +$.query.get('p7')+ "</li>";
-        }
-      </script>
-    </div>
-  </ul>
-  Here are the following documents that are requested for inspection:<br><br>
-  <ul> 
-    <div id="_b1_">
-      <script>
-        if ($.query.get('b1') !== true) {
-        document.getElementById("_b1_").innerHTML = "<li>" + $.query.get('b1') + "</li>";
-        document.write("<br />");
-        }
-      </script>
-    </div>
-    <div id="_b2_">
-      <script>
-        if ($.query.get('b2') !== true) {
-          document.getElementById("_b2_").innerHTML = "<li>" +$.query.get('b2') + "</li>";
-          document.write("<br />");
-        }
-      </script>
-    </div>
-    <div id="_b3_">
-      <script>
-        if ($.query.get('b3') !== true) {
-          document.getElementById("_b3_").innerHTML = "<li>" +$.query.get('b3')+ "</li>";
-          document.write("<br />");
-        }
-      </script>
-    </div>
-    <div id="_b4_">
-      <script>
-       if ($.query.get('b4') !== true) {
-          document.getElementById("_b4_").innerHTML = "<li>" +$.query.get('b4')+ "</li>";
-          document.write("<br />");
-        }
-      </script>
-    </div>
-  </ul>
-  The undersigned also states that he has never sold nor offered for sale any list of shareholders of any corporation, nor assisted any person in obtaining such list or record for such purposes. Any attachment to this letter is a true and correct copy of what it purports to be.
-  <br>
-  <br>
-  Please have your counsel advise 
-    <script> 
-      var fname = $.query.get('fname');
-      var lname = $.query.get('lname');
-      document.write(fname + " " + lname);
-    </script>   
-  where and when the aforementioned books, records and other documents will be available for inspection and copying. 
-    <script> 
-      var fname = $.query.get('fname');
-      var lname = $.query.get('lname');
-      document.write(fname + " " + lname + " ");
-    </script>
-  can be reached at 
-  <div id="tel" class="phone" style="display:inline">
-    <script> 
-      var tel = $.query.get('tel');
-      document.getElementById("tel").innerHTML = $.query.get('tel');
-      $(".phone").text(function(i,text) {
-        text = text.replace(/(\d{3})(\d{3})(\d{4})/, "$1-$2-$3");
-        return text;
-      });
-    </script>
-  </div>
-  and e-mail 
-  <script> 
-    var email = $.query.get('email');
-    document.write(email + ".");
-  </script>
-  <br>
-  <br>
-  <br>
-  Signed,
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <div id="signature line">
-    <script>
-      var fname = $.query.get('fname');
-      var lname = $.query.get('lname');
-      document.write(fname + " " + lname);
-    </script>
-  </div>
-</div>
-        
-<div class="pager">
-  <button onclick="window.history.back()">Go Back</button>
-  <button type="button"  onclick="pdfCreate(document.getElementById('letter').innerHTML)">Save as PDF</button>
-</div>
-<hr>
-<div>
-  <h4 style="text-align:center;">Disclaimer</h4>
-  <p style="text-align:center;">This is not meant to replace legal advice. See a lawyer if you have more questions. Our full disclaimer can be found <a href="disclaimer.html">here</a>.</p>
-</div>
-<br> 
-<br> 
-</body> 
-</html> 
+</html>
