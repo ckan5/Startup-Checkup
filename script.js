@@ -30,11 +30,11 @@ function addPurposeCheck() {
 }
 
 function addBookCheck() {
-  if (letterform.b1.checked == false && letterform.b2.checked == false && letterform.b3.checked == false && letterform.b4.checked == false && letterform.b5.checked == false) {
+  if (letterform.b1.checked == false && letterform.b2.checked == false && letterform.b3.checked == false && letterform.b4.checked == false && letterform.b5.checked == false && letterform.b6.checked == false && letterform.b7.checked == false && letterform.b8.checked == false) {
     letterform.b1.setCustomValidity("Need to choose at least one type of document.");
   }
 
-  else if (letterform.b1.checked == true || letterform.b2.checked == true || letterform.b3.checked == true || letterform.b4.checked == true || letterform.b5.checked == true) {
+  else if (letterform.b1.checked == true || letterform.b2.checked == true || letterform.b3.checked == true || letterform.b4.checked == true || letterform.b5.checked == true || letterform.b6.checked == true || letterform.b7.checked == true || letterform.b8.checked == true) {
     letterform.b1.setCustomValidity("");
   }
 }
@@ -71,7 +71,7 @@ function otherCheck(p, other) {
   if (document.getElementById(p).checked == true) {
     document.getElementById(other).required = true;
     if (document.getElementById(other).value == "") {
-      letterform[other].setCustomValidity("Need to state a purpose if you selected this option.");
+      letterform[other].setCustomValidity("Need to fill this in if you selected this option.");
     }
     else {
       letterform[other].setCustomValidity("");
@@ -96,10 +96,16 @@ function resetCheck() {
   letterform.other.setCustomValidity("");
   letterform.other2.setCustomValidity("");
   letterform.other3.setCustomValidity("");
+  letterform.otherb.setCustomValidity("");
+  letterform.otherb2.setCustomValidity("");
+  letterform.otherb3.setCustomValidity("");
   document.getElementById("cred").required = false;
   document.getElementById("other").required = false;
   document.getElementById("other2").required = false;
   document.getElementById("other3").required = false;
+  document.getElementById("otherb").required = false;
+  document.getElementById("otherb2").required = false;
+  document.getElementById("otherb3").required = false;
 }
 
 //This adds all of the custom validity messages and adds event handlers that checks whenever the user changes an entry on the page
@@ -113,6 +119,9 @@ window.onpageshow = function() {
   otherCheck("p5", "other");
   otherCheck("p6","other2");
   otherCheck("p7","other3");
+  otherCheck("b6", "otherb");
+  otherCheck("b7","otherb2");
+  otherCheck("b8","otherb3");
   document.getElementById("attorneyYN").addEventListener("change", addAttorneyCheck);
   document.getElementById("numshares").addEventListener("change", addSharesCheck);
   document.getElementById("owner").addEventListener("change", addOwnerCheck);
@@ -136,5 +145,14 @@ window.onpageshow = function() {
   document.getElementById("b3").addEventListener("change", addBookCheck);
   document.getElementById("b4").addEventListener("change", addBookCheck);
   document.getElementById("b5").addEventListener("change", addBookCheck);
+  document.getElementById("b6").addEventListener("change", addPurposeCheck);
+  document.getElementById("b6").addEventListener("change", function() {otherCheck("b6","otherb")});
+  document.getElementById("otherb").addEventListener("change", function() {otherCheck("b6","otherb")});
+  document.getElementById("b7").addEventListener("change", addPurposeCheck);
+  document.getElementById("b7").addEventListener("change", function() {otherCheck("b7","otherb2")});
+  document.getElementById("otherb2").addEventListener("change", function() {otherCheck("b7","otherb2")});
+  document.getElementById("b8").addEventListener("change", addPurposeCheck);
+  document.getElementById("b8").addEventListener("change", function() {otherCheck("b8","otherb3")});
+  document.getElementById("otherb3").addEventListener("change", function() {otherCheck("b8","otherb3")});
 };
 

@@ -163,7 +163,7 @@
                     <script>
                         if ($.query.get('p1')) {
                             document.getElementById("p1_").innerHTML = "<li>" + $.query.get('p1') + ", for the following reason(s): " + $.query.get('cred') + "</li>";
-                            document.write("<br />");
+                            document.write("<br>");
                         }
                     </script>
                 </div>
@@ -171,7 +171,7 @@
                     <script>
                         if ($.query.get('p2')) {
                             document.getElementById("p2_").innerHTML = "<li>" + $.query.get('p2') + "</li>";
-                            document.write("<br />");
+                            document.write("<br>");
                         }
                     </script>
                 </div>
@@ -179,7 +179,7 @@
                     <script>
                         if ($.query.get('p3')) {
                             document.getElementById("p3_").innerHTML = "<li>" + $.query.get('p3') + "</li>";
-                            document.write("<br />");
+                            document.write("<br>");
                         }
                     </script>
                 </div>
@@ -187,7 +187,7 @@
                     <script>
                         if ($.query.get('p4')) {
                             document.getElementById("p4_").innerHTML = "<li>" + $.query.get('p4') + "</li>";
-                            document.write("<br />");
+                            document.write("<br>");
                         }
                     </script>
                 </div>
@@ -195,7 +195,7 @@
                     <script>
                         if ($.query.get('p5')) {
                             document.getElementById("p5_").innerHTML = "<li>" + $.query.get('other') + "</li>";
-                            document.write("<br />");
+                            document.write("<br>");
                         }
                     </script>
                 </div>
@@ -203,7 +203,7 @@
                     <script>
                         if ($.query.get('p6')) {
                             document.getElementById("p6_").innerHTML = "<li>" + $.query.get('other2') + "</li>";
-                            document.write("<br />");
+                            document.write("<br>");
                         }
                     </script>
                 </div>
@@ -211,7 +211,7 @@
                     <script>
                         if ($.query.get('p7')) {
                             document.getElementById("p7_").innerHTML = "<li>" + $.query.get('other3') + "</li>";
-                            document.write("<br />");
+                            document.write("<br>");
                         }
                     </script>
                 </div>
@@ -226,7 +226,7 @@
                     <script>
                         if ($.query.get('b1')) {
                             document.getElementById("b1_").innerHTML = "<li>" + $.query.get('b1') + "</li>";
-                            document.write("<br />");
+                            document.write("<br>");
                         }
                     </script>
                 </div>
@@ -234,7 +234,7 @@
                     <script>
                         if ($.query.get('b2')) {
                             document.getElementById("b2_").innerHTML = "<li>" + $.query.get('b2') + "</li>";
-                            document.write("<br />");
+                            document.write("<br>");
                         }
                     </script>
                 </div>
@@ -242,7 +242,7 @@
                     <script>
                         if ($.query.get('b3')) {
                             document.getElementById("b3_").innerHTML = "<li>" + $.query.get('b3') + "</li>";
-                            document.write("<br />");
+                            document.write("<br>");
                         }
                     </script>
                 </div>
@@ -250,7 +250,7 @@
                     <script>
                         if ($.query.get('b4')) {
                             document.getElementById("b4_").innerHTML = "<li>" + $.query.get('b4') + "</li>";
-                            document.write("<br />");
+                            document.write("<br>");
                         }
                     </script>
                 </div>
@@ -258,7 +258,31 @@
                     <script>
                         if ($.query.get('b5')) {
                             document.getElementById("b5_").innerHTML = "<li>" + $.query.get('b5') + "</li>";
-                            document.write("<br />");
+                            document.write("<br>");
+                        }
+                    </script>
+                </div>
+                <div id="b6_">
+                    <script>
+                        if ($.query.get('b6')) {
+                            document.getElementById("b6_").innerHTML = "<li>" + $.query.get('otherb') + "</li>";
+                            document.write("<br>");
+                        }
+                    </script>
+                </div>
+                <div id="b7_">
+                    <script>
+                        if ($.query.get('b7')) {
+                            document.getElementById("b7_").innerHTML = "<li>" + $.query.get('otherb2') + "</li>";
+                            document.write("<br>");
+                        }
+                    </script>
+                </div>
+                <div id="b8_">
+                    <script>
+                        if ($.query.get('b8')) {
+                            document.getElementById("b8_").innerHTML = "<li>" + $.query.get('otherb3') + "</li>";
+                            document.write("<br>");
                         }
                     </script>
                 </div>
@@ -295,6 +319,9 @@
         <input type="hidden" name="b3" id="-b3" value="">
         <input type="hidden" name="b4" id="-b4" value="">
         <input type="hidden" name="b5" id="-b5" value="">
+        <input type="hidden" name="b6" id="-b6" value="">
+        <input type="hidden" name="b7" id="-b7" value="">
+        <input type="hidden" name="b8" id="-b8" value="">
         <div class="pager">
             <button onclick="window.history.back()">Go Back</button>
             <input type="submit" value="Submit">
@@ -334,6 +361,15 @@
         document.getElementById("-b3").value = $.query.get('b3');
         document.getElementById("-b4").value = $.query.get('b4');
         document.getElementById("-b5").value = $.query.get('b5');
+        if ($.query.get('b6') == true) {
+            document.getElementById("-b6").value = $.query.get('otherb');
+        }
+        if ($.query.get('b7') == true) {
+            document.getElementById("-b7").value = $.query.get('otherb2');
+        }
+        if ($.query.get('b8') == true) {
+            document.getElementById("-b8").value = $.query.get('otherb3');
+        }
     </script>
 
     <hr>
