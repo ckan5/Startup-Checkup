@@ -10,6 +10,30 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="jquery.query-object.js"></script>
+    <script>
+        function convertToDate(string) {
+            var parts =string.split('/');
+            //please put attention to the month (parts[0]), Javascript counts months from 0:
+            // January - 0, February - 1, etc
+            var newDate = new Date(parts[2],parts[0]-1,parts[1]);
+            return newDate;
+        }
+
+        function transformDate(date) {
+            var monthNames = [
+                "January", "February", "March",
+                "April", "May", "June", "July",
+                "August", "September", "October",
+                "November", "December"
+            ];
+
+            var day = date.getDate();
+            var monthIndex = date.getMonth();
+            var year = date.getFullYear();
+            var string = monthNames[monthIndex] + " " + day + ', ' + year;
+            return string;
+        }
+    </script>
 
 </head>
 
@@ -233,7 +257,7 @@
                 <div id="b2_">
                     <script>
                         if ($.query.get('b2')) {
-                            document.getElementById("b2_").innerHTML = "<li>" + $.query.get('b2') + "</li>";
+                            document.getElementById("b2_").innerHTML = "<li>" + $.query.get('b2') + ", from " + transformDate(convertToDate($.query.get('from1'))) + " to " + transformDate(convertToDate($.query.get('to1'))) + ".</li>";
                             document.write("<br>");
                         }
                     </script>
@@ -241,7 +265,7 @@
                 <div id="b3_">
                     <script>
                         if ($.query.get('b3')) {
-                            document.getElementById("b3_").innerHTML = "<li>" + $.query.get('b3') + "</li>";
+                            document.getElementById("b3_").innerHTML = "<li>" + $.query.get('b3') + ", from " + transformDate(convertToDate($.query.get('from2'))) + " to " + transformDate(convertToDate($.query.get('to2'))) + ".</li>";
                             document.write("<br>");
                         }
                     </script>
@@ -249,7 +273,7 @@
                 <div id="b4_">
                     <script>
                         if ($.query.get('b4')) {
-                            document.getElementById("b4_").innerHTML = "<li>" + $.query.get('b4') + "</li>";
+                            document.getElementById("b4_").innerHTML = "<li>" + $.query.get('b4') + ", from " + transformDate(convertToDate($.query.get('from3'))) + " to " + transformDate(convertToDate($.query.get('to3'))) + ".</li>";
                             document.write("<br>");
                         }
                     </script>
@@ -257,7 +281,7 @@
                 <div id="b5_">
                     <script>
                         if ($.query.get('b5')) {
-                            document.getElementById("b5_").innerHTML = "<li>" + $.query.get('b5') + "</li>";
+                            document.getElementById("b5_").innerHTML = "<li>" + $.query.get('b5') + ", from " + transformDate(convertToDate($.query.get('from4'))) + " to " + transformDate(convertToDate($.query.get('to4'))) + ".</li>";
                             document.write("<br>");
                         }
                     </script>
@@ -265,7 +289,7 @@
                 <div id="b6_">
                     <script>
                         if ($.query.get('b6')) {
-                            document.getElementById("b6_").innerHTML = "<li>" + $.query.get('otherb') + "</li>";
+                            document.getElementById("b6_").innerHTML = "<li>" + $.query.get('otherb') + ", from " + transformDate(convertToDate($.query.get('from5'))) + " to " + transformDate(convertToDate($.query.get('to5'))) + ".</li>";
                             document.write("<br>");
                         }
                     </script>
@@ -273,7 +297,7 @@
                 <div id="b7_">
                     <script>
                         if ($.query.get('b7')) {
-                            document.getElementById("b7_").innerHTML = "<li>" + $.query.get('otherb2') + "</li>";
+                            document.getElementById("b7_").innerHTML = "<li>" + $.query.get('otherb2') + ", from " + transformDate(convertToDate($.query.get('from6'))) + " to " + transformDate(convertToDate($.query.get('to6'))) + ".</li>";
                             document.write("<br>");
                         }
                     </script>
@@ -281,7 +305,7 @@
                 <div id="b8_">
                     <script>
                         if ($.query.get('b8')) {
-                            document.getElementById("b8_").innerHTML = "<li>" + $.query.get('otherb3') + "</li>";
+                            document.getElementById("b8_").innerHTML = "<li>" + $.query.get('otherb3') + ", from " + transformDate(convertToDate($.query.get('from7'))) + " to " + transformDate(convertToDate($.query.get('to7'))) + ".</li>";
                             document.write("<br>");
                         }
                     </script>
@@ -357,18 +381,18 @@
             document.getElementById("-p7").value = $.query.get('other3');
         }
         document.getElementById("-b1").value = $.query.get('b1');
-        document.getElementById("-b2").value = $.query.get('b2');
-        document.getElementById("-b3").value = $.query.get('b3');
-        document.getElementById("-b4").value = $.query.get('b4');
-        document.getElementById("-b5").value = $.query.get('b5');
+        document.getElementById("-b2").value = document.getElementById("b2_").innerHTML;
+        document.getElementById("-b3").value = document.getElementById("b3_").innerHTML;
+        document.getElementById("-b4").value = document.getElementById("b4_").innerHTML;
+        document.getElementById("-b5").value = document.getElementById("b5_").innerHTML;
         if ($.query.get('b6') == true) {
-            document.getElementById("-b6").value = $.query.get('otherb');
+            document.getElementById("-b6").value = document.getElementById("b6_").innerHTML;;
         }
         if ($.query.get('b7') == true) {
-            document.getElementById("-b7").value = $.query.get('otherb2');
+            document.getElementById("-b7").value = document.getElementById("b7_").innerHTML;;
         }
         if ($.query.get('b8') == true) {
-            document.getElementById("-b8").value = $.query.get('otherb3');
+            document.getElementById("-b8").value = document.getElementById("b8_").innerHTML;;
         }
     </script>
 

@@ -7,11 +7,13 @@
     <script data-require="jquery@3.0.0" data-semver="3.0.0" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.js"></script>
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="script.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
     <script src="//d79i1fxsrar4t.cloudfront.net/jquery.liveaddress/3.2/jquery.liveaddress.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
     <!--Smarty Street Initialization Script -->
     <script>
@@ -34,6 +36,61 @@
             }]
         });
     </script>
+    <script>
+        $( function() {
+            var dateFormat = "mm/dd/yy",
+              from = $( ".from" )
+                .datepicker({
+                  defaultDate: "+1w",
+                  changeMonth: true,
+                  numberOfMonths: 3,
+                  onSelect: function() {
+                    dateCheck("b2","from1","to1");
+                    dateCheck("b3","from2","to2");
+                    dateCheck("b4","from3","to3");
+                    dateCheck("b5","from4","to4");
+                    dateCheck("b6","from5","to5");
+                    dateCheck("b7","from6","to6");
+                    dateCheck("b8","from7","to7");
+                    }
+                })
+                .on( "change", function() {
+                  to.datepicker( "option", "minDate", getDate( this ) );
+                }),
+              to = $( ".to" ).datepicker({
+                defaultDate: "+1w",
+                changeMonth: true,
+                numberOfMonths: 3,
+                onSelect: function() {
+                    dateCheck("b2","from1","to1");
+                    dateCheck("b3","from2","to2");
+                    dateCheck("b4","from3","to3");
+                    dateCheck("b5","from4","to4");
+                    dateCheck("b6","from5","to5");
+                    dateCheck("b7","from6","to6");
+                    dateCheck("b8","from7","to7");
+                    }
+              })
+              .on( "change", function() {
+                from.datepicker( "option", "maxDate", getDate( this ) );
+              });
+         
+            function getDate( element ) {
+              var date;
+              try {
+                date = $.datepicker.parseDate( dateFormat, element.value );
+              } catch( error ) {
+                date = null;
+              }
+         
+              return date;
+        }
+  } );
+
+$(".from").datepicker({
+  
+});
+  </script>
 </head>
 
 <body>
@@ -142,13 +199,13 @@
             <fieldset>
                 <legend>Types of Documents Desired</legend>
                 <input type="checkbox" name="b1" id="b1" class="books" value="Documents related to the process of nominating board members."> Documents related to the process of nominating board members. <br>
-                <input type="checkbox" name="b2" id="b2" class="books" value="Minutes of the agendas of board meetings related to the above purposes."> Minutes of the agendas of board meetings related to the above purposes. <br>
-                <input type="checkbox" name="b3" id="b3" class="books" value="Documents reviewed by the board in connection with the above purposes."> Documents reviewed by the board in connection with the above purposes. <br>
-                <input type="checkbox" name="b4" id="b4" class="books" value="Communications between directors, officers, and managers in connection with the above purposes."> Communications between directors, officers, and managers in connection with the above purposes. <br>
-                <input type="checkbox" name="b5" id="b5" class="books" value="Financial materials and documents related to the above purposes."> Financial materials and documents related to the above purposes. <br>
-                <input type="checkbox" name="b6" id="b6" class="purpose" value=""> Other Document 1: <input type="text" id="otherb" name="otherb" value=""> <br>
-                <input type="checkbox" name="b7" id="b7" class="purpose" value=""> Other Document 2: <input type="text" id="otherb2" name="otherb2" value=""> <br>
-                <input type="checkbox" name="b8" id="b8" class="purpose" value=""> Other Document 3: <input type="text" id="otherb3" name="otherb3" value=""> <br>
+                <input type="checkbox" name="b2" id="b2" class="books" value="Minutes of the agendas of board meetings related to the above purposes"> Minutes of the agendas of board meetings related to the above purposes. From <input type="text" class="from" name="from1" id="from1"> to <input type="text" class="to" name="to1" id="to1"><br>
+                <input type="checkbox" name="b3" id="b3" class="books" value="Documents reviewed by the board in connection with the above purposes"> Documents reviewed by the board in connection with the above purposes. From <input type="text" class="from" name="from2" id="from2"> to <input type="text" class="to" name="to2" id="to2"><br>
+                <input type="checkbox" name="b4" id="b4" class="books" value="Communications between directors, officers, and managers in connection with the above purposes"> Communications between directors, officers, and managers in connection with the above purposes. From <input type="text" class="from" name="from3" id="from3"> to <input type="text" class="to" name="to3" id="to3"><br>
+                <input type="checkbox" name="b5" id="b5" class="books" value="Financial materials and documents related to the above purposes"> Financial materials and documents related to the above purposes. From <input type="text" class="from" name="from4" id="from4"> to <input type="text" class="to" name="to4" id="to4"><br>
+                <input type="checkbox" name="b6" id="b6" class="purpose" value=""> Other Document 1: <input type="text" id="otherb" name="otherb" value="">. From <input type="text" class="from" name="from5" id="from5"> to <input type="text" class="to" name="to5" id="to5"><br>
+                <input type="checkbox" name="b7" id="b7" class="purpose" value=""> Other Document 2: <input type="text" id="otherb2" name="otherb2" value="">. From <input type="text" class="from" name="from6" id="from6"> to <input type="text" class="to" name="to6" id="to6"><br>
+                <input type="checkbox" name="b8" id="b8" class="purpose" value=""> Other Document 3: <input type="text" id="otherb3" name="otherb3" value="">. From <input type="text" class="from" name="from7" id="from7"> to <input type="text" class="to" name="to7" id="to7"><br>
             </fieldset>
             <br>
             <br>

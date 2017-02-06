@@ -85,6 +85,24 @@ function otherCheck(p, other) {
 
 }
 
+function dateCheck(b, from, to) {
+  if (document.getElementById(b).checked == true) {
+    document.getElementById(from).required = true;
+    document.getElementById(to).required = true;
+    if (document.getElementById(from).value == "" || document.getElementById(to).value == "") {
+      letterform[b].setCustomValidity("Need to choose an appropriate date range for this option.");
+    }
+    else {
+      letterform[b].setCustomValidity("");
+    }
+  }
+  else if (document.getElementById(b).checked == false) {
+    document.getElementById(from).required = false;
+    document.getElementById(to).required = false;
+    letterform[b].setCustomValidity("");
+  }
+}
+
 //Puts all the forms in their original position after reset of the form
 function resetCheck() {
   letterform.attorneyYN.setCustomValidity("This site is not meant for those with attorneys. Please verify that you do not have an attorney.");
@@ -99,6 +117,13 @@ function resetCheck() {
   letterform.otherb.setCustomValidity("");
   letterform.otherb2.setCustomValidity("");
   letterform.otherb3.setCustomValidity("");
+  letterform.from1.setCustomValidity("");
+  letterform.from2.setCustomValidity("");
+  letterform.from3.setCustomValidity("");
+  letterform.from4.setCustomValidity("");
+  letterform.from5.setCustomValidity("");
+  letterform.from6.setCustomValidity("");
+  letterform.from7.setCustomValidity("");
   document.getElementById("cred").required = false;
   document.getElementById("other").required = false;
   document.getElementById("other2").required = false;
@@ -106,6 +131,20 @@ function resetCheck() {
   document.getElementById("otherb").required = false;
   document.getElementById("otherb2").required = false;
   document.getElementById("otherb3").required = false;
+  document.getElementById("from1").required = false;
+  document.getElementById("from2").required = false;
+  document.getElementById("from3").required = false;
+  document.getElementById("from4").required = false;
+  document.getElementById("from5").required = false;
+  document.getElementById("from6").required = false;
+  document.getElementById("from7").required = false;
+  document.getElementById("to1").required = false;
+  document.getElementById("to2").required = false;
+  document.getElementById("to3").required = false;
+  document.getElementById("to4").required = false;
+  document.getElementById("to5").required = false;
+  document.getElementById("to6").required = false;
+  document.getElementById("to7").required = false;
 }
 
 //This adds all of the custom validity messages and adds event handlers that checks whenever the user changes an entry on the page
@@ -122,6 +161,13 @@ window.onpageshow = function() {
   otherCheck("b6", "otherb");
   otherCheck("b7","otherb2");
   otherCheck("b8","otherb3");
+  dateCheck("b2","from1","to1");
+  dateCheck("b3","from2","to2");
+  dateCheck("b4","from3","to3");
+  dateCheck("b5","from4","to4");
+  dateCheck("b6","from5","to5");
+  dateCheck("b7","from6","to6");
+  dateCheck("b8","from7","to7");
   document.getElementById("attorneyYN").addEventListener("change", addAttorneyCheck);
   document.getElementById("numshares").addEventListener("change", addSharesCheck);
   document.getElementById("owner").addEventListener("change", addOwnerCheck);
@@ -142,17 +188,25 @@ window.onpageshow = function() {
   document.getElementById("other3").addEventListener("change", function() {otherCheck("p7","other3")});
   document.getElementById("b1").addEventListener("change", addBookCheck);
   document.getElementById("b2").addEventListener("change", addBookCheck);
+  document.getElementById("b2").addEventListener("change", function() {dateCheck("b2","from1","to1")});
   document.getElementById("b3").addEventListener("change", addBookCheck);
+  document.getElementById("b3").addEventListener("change", function() {dateCheck("b3","from2","to2")});
   document.getElementById("b4").addEventListener("change", addBookCheck);
+  document.getElementById("b4").addEventListener("change", function() {dateCheck("b4","from3","to3")});
   document.getElementById("b5").addEventListener("change", addBookCheck);
+  document.getElementById("b5").addEventListener("change", function() {dateCheck("b5","from4","to4")});
   document.getElementById("b6").addEventListener("change", addPurposeCheck);
   document.getElementById("b6").addEventListener("change", function() {otherCheck("b6","otherb")});
+  document.getElementById("b6").addEventListener("change", function() {dateCheck("b6","from5","to5")});
   document.getElementById("otherb").addEventListener("change", function() {otherCheck("b6","otherb")});
   document.getElementById("b7").addEventListener("change", addPurposeCheck);
   document.getElementById("b7").addEventListener("change", function() {otherCheck("b7","otherb2")});
+  document.getElementById("b7").addEventListener("change", function() {dateCheck("b7","from6","to6")});
   document.getElementById("otherb2").addEventListener("change", function() {otherCheck("b7","otherb2")});
   document.getElementById("b8").addEventListener("change", addPurposeCheck);
   document.getElementById("b8").addEventListener("change", function() {otherCheck("b8","otherb3")});
+  document.getElementById("b8").addEventListener("change", function() {dateCheck("b8","from7","to7")});
   document.getElementById("otherb3").addEventListener("change", function() {otherCheck("b8","otherb3")});
 };
+
 
