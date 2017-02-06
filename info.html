@@ -45,13 +45,14 @@
                       changeMonth: true,
                       numberOfMonths: 3,
                       onSelect: function() {
-                        dateCheck("b2","from1","to1");
-                        dateCheck("b3","from2","to2");
-                        dateCheck("b4","from3","to3");
-                        dateCheck("b5","from4","to4");
-                        dateCheck("b6","from5","to5");
-                        dateCheck("b7","from6","to6");
-                        dateCheck("b8","from7","to7");
+                        dateCheck("b1","from1","to1");
+                        dateCheck("b2","from2","to2");
+                        dateCheck("b3","from3","to3");
+                        dateCheck("b4","from4","to4");
+                        dateCheck("b5","from5","to5");
+                        dateCheck("b6","from6","to6");
+                        dateCheck("b7","from7","to7");
+                        dateCheck("b8","from8","to8");
                         }
                     })
                     .on( "change", function() {
@@ -62,13 +63,14 @@
                     changeMonth: true,
                     numberOfMonths: 3,
                     onSelect: function() {
-                        dateCheck("b2","from1","to1");
-                        dateCheck("b3","from2","to2");
-                        dateCheck("b4","from3","to3");
-                        dateCheck("b5","from4","to4");
-                        dateCheck("b6","from5","to5");
-                        dateCheck("b7","from6","to6");
-                        dateCheck("b8","from7","to7");
+                        dateCheck("b1","from1","to1");
+                        dateCheck("b2","from2","to2");
+                        dateCheck("b3","from3","to3");
+                        dateCheck("b4","from4","to4");
+                        dateCheck("b5","from5","to5");
+                        dateCheck("b6","from6","to6");
+                        dateCheck("b7","from7","to7");
+                        dateCheck("b8","from8","to8");
                         }
                     })
                     .on( "change", function() {
@@ -182,26 +184,30 @@
                         <span>In order for the letter to be valid, you must choose a "proper purpose" that is related to your interest in the stock.<br><br>For investigating corporate mismanagement, you must state a credible purpose for why you believe the investigation is necessary. There must be some kind of evidence you can point to or some event that has happened that you are using to justify this request for documents.<br><br>We also give you the option to put in three customizable purposes. These have to be valid purposes, however, and not things like "I am curious" or "I just want to see how things are." If the purpose to you doesn't seem important enough, it is probably best to not include it.</span>
                     </div>
                 </legend>
-                <input type="checkbox" name="p1" id="p1" class="purpose" value="To investigate corporate mismanagement"> To investigate corporate mismanagement. <br>
+                <input type="checkbox" name="p1" id="p1" class="purpose" value="To investigate corporate mismanagement and potential breaches of fiduciary duties"> To investigate corporate mismanagement and potential breaches of fiduciary duties. <br>
                 <span style="padding-left:2em"> Credible purpose: </span><input type="text" id="cred" name="cred" value=""><br>
                 <input type="checkbox" name="p2" id="p2" class="purpose" value="To help in the valuation of shares in order to facilitate and negotiate a fair sale of stock."> To help in the valuation of shares in order to facilitate and negotiate a fair sale of stock. <br>
                 <input type="checkbox" name="p3" id="p3" class="purpose" value="To explore director disinterestedness and independence."> To explore director disinterestedness and independence. <br>
-                <input type="checkbox" name="p4" id="p4" class="purpose" value="To explore potential breaches of fiduciary duties and wrongdoing."> To explore potential breaches of fiduciary duties and wrongdoing. <br>
+                <input type="checkbox" name="p4" id="p4" class="purpose" value="To aid in pleading demand futility in a complaint for a derivative action."> To aid in pleading demand futility in a complaint for a derivative action. <br>
                 <input type="checkbox" name="p5" id="p5" class="purpose" value=""> Other Purpose 1: <input type="text" id="other" name="other" value=""> <br>
                 <input type="checkbox" name="p6" id="p6" class="purpose" value=""> Other Purpose 2: <input type="text" id="other2" name="other2" value=""> <br>
                 <input type="checkbox" name="p7" id="p7" class="purpose" value=""> Other Purpose 3: <input type="text" id="other3" name="other3" value=""> <br>
             </fieldset>
             <br>
             <fieldset>
-                <legend>Types of Documents Desired</legend>
-                <input type="checkbox" name="b1" id="b1" class="books" value="Documents related to the process of nominating board members."> Documents related to the process of nominating board members. <br>
-                <input type="checkbox" name="b2" id="b2" class="books" value="Minutes of the agendas of board meetings related to the above purposes"> Minutes of the agendas of board meetings related to the above purposes. From <input type="text" class="from" name="from1" id="from1"> to <input type="text" class="to" name="to1" id="to1"><br>
-                <input type="checkbox" name="b3" id="b3" class="books" value="Documents reviewed by the board in connection with the above purposes"> Documents reviewed by the board in connection with the above purposes. From <input type="text" class="from" name="from2" id="from2"> to <input type="text" class="to" name="to2" id="to2"><br>
-                <input type="checkbox" name="b4" id="b4" class="books" value="Communications between directors, officers, and managers in connection with the above purposes"> Communications between directors, officers, and managers in connection with the above purposes. From <input type="text" class="from" name="from3" id="from3"> to <input type="text" class="to" name="to3" id="to3"><br>
-                <input type="checkbox" name="b5" id="b5" class="books" value="Financial materials and documents related to the above purposes"> Financial materials and documents related to the above purposes. From <input type="text" class="from" name="from4" id="from4"> to <input type="text" class="to" name="to4" id="to4"><br>
-                <input type="checkbox" name="b6" id="b6" class="purpose" value=""> Other Document 1: <input type="text" id="otherb" name="otherb" value="">. From <input type="text" class="from" name="from5" id="from5"> to <input type="text" class="to" name="to5" id="to5"><br>
-                <input type="checkbox" name="b7" id="b7" class="purpose" value=""> Other Document 2: <input type="text" id="otherb2" name="otherb2" value="">. From <input type="text" class="from" name="from6" id="from6"> to <input type="text" class="to" name="to6" id="to6"><br>
-                <input type="checkbox" name="b8" id="b8" class="purpose" value=""> Other Document 3: <input type="text" id="otherb3" name="otherb3" value="">. From <input type="text" class="from" name="from7" id="from7"> to <input type="text" class="to" name="to7" id="to7"><br>
+                <legend>Types of Documents Desired
+                    <div class="help-tip">
+                        <span>You must also choose the relevant documents you wish to inspect. Only documents that are necessary and essential to the purpose of your request are available to be reviewed. This requires the document to speak directly to the purpose you listed above and to contain information that is not be available from another source.<br><br>We have provided you with the most common types of documents requested, but we also give you the option of requesting three types of documents that are customizable to your situation. We also require you to choose a date range for the documents requested so as to make your request more narrowly tailored and reasonable.</span>
+                    </div>
+                </legend>
+                <input type="checkbox" name="b1" id="b1" class="books" value="Documents related to the process of nominating board members"> Documents related to the process of nominating board members. From <input type="text" class="from" name="from1" id="from1"> to <input type="text" class="to" name="to1" id="to1"><br>
+                <input type="checkbox" name="b2" id="b2" class="books" value="Minutes of the agendas of board meetings related to the above purposes"> Minutes of the agendas of board meetings related to the above purposes. From <input type="text" class="from" name="from2" id="from2"> to <input type="text" class="to" name="to2" id="to2"><br>
+                <input type="checkbox" name="b3" id="b3" class="books" value="Documents reviewed by the board in connection with the above purposes"> Documents reviewed by the board in connection with the above purposes. From <input type="text" class="from" name="from3" id="from3"> to <input type="text" class="to" name="to3" id="to3"><br>
+                <input type="checkbox" name="b4" id="b4" class="books" value="Communications between directors, officers, and managers in connection with the above purposes"> Communications between directors, officers, and managers in connection with the above purposes. From <input type="text" class="from" name="from4" id="from4"> to <input type="text" class="to" name="to4" id="to4"><br>
+                <input type="checkbox" name="b5" id="b5" class="books" value="Financial materials and documents related to the above purposes"> Financial materials and documents related to the above purposes. From <input type="text" class="from" name="from5" id="from5"> to <input type="text" class="to" name="to5" id="to5"><br>
+                <input type="checkbox" name="b6" id="b6" class="purpose" value=""> Other Document 1: <input type="text" id="otherb" name="otherb" value="">. From <input type="text" class="from" name="from6" id="from6"> to <input type="text" class="to" name="to6" id="to6"><br>
+                <input type="checkbox" name="b7" id="b7" class="purpose" value=""> Other Document 2: <input type="text" id="otherb2" name="otherb2" value="">. From <input type="text" class="from" name="from7" id="from7"> to <input type="text" class="to" name="to7" id="to7"><br>
+                <input type="checkbox" name="b8" id="b8" class="purpose" value=""> Other Document 3: <input type="text" id="otherb3" name="otherb3" value="">. From <input type="text" class="from" name="from8" id="from8"> to <input type="text" class="to" name="to8" id="to8"><br>
             </fieldset>
             <br>
             <br>
