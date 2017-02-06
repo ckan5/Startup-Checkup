@@ -39,57 +39,53 @@
     <script>
         $( function() {
             var dateFormat = "mm/dd/yy",
-              from = $( ".from" )
-                .datepicker({
-                  defaultDate: "+1w",
-                  changeMonth: true,
-                  numberOfMonths: 3,
-                  onSelect: function() {
-                    dateCheck("b2","from1","to1");
-                    dateCheck("b3","from2","to2");
-                    dateCheck("b4","from3","to3");
-                    dateCheck("b5","from4","to4");
-                    dateCheck("b6","from5","to5");
-                    dateCheck("b7","from6","to6");
-                    dateCheck("b8","from7","to7");
-                    }
-                })
-                .on( "change", function() {
-                  to.datepicker( "option", "minDate", getDate( this ) );
-                }),
-              to = $( ".to" ).datepicker({
-                defaultDate: "+1w",
-                changeMonth: true,
-                numberOfMonths: 3,
-                onSelect: function() {
-                    dateCheck("b2","from1","to1");
-                    dateCheck("b3","from2","to2");
-                    dateCheck("b4","from3","to3");
-                    dateCheck("b5","from4","to4");
-                    dateCheck("b6","from5","to5");
-                    dateCheck("b7","from6","to6");
-                    dateCheck("b8","from7","to7");
-                    }
-              })
-              .on( "change", function() {
-                from.datepicker( "option", "maxDate", getDate( this ) );
-              });
+                from = $(".from")
+                    .datepicker({
+                      defaultDate: "+1w",
+                      changeMonth: true,
+                      numberOfMonths: 3,
+                      onSelect: function() {
+                        dateCheck("b2","from1","to1");
+                        dateCheck("b3","from2","to2");
+                        dateCheck("b4","from3","to3");
+                        dateCheck("b5","from4","to4");
+                        dateCheck("b6","from5","to5");
+                        dateCheck("b7","from6","to6");
+                        dateCheck("b8","from7","to7");
+                        }
+                    })
+                    .on( "change", function() {
+                      to.datepicker( "option", "minDate", getDate( this ) );
+                    }),
+                to = $(".to").datepicker({
+                    defaultDate: "+1w",
+                    changeMonth: true,
+                    numberOfMonths: 3,
+                    onSelect: function() {
+                        dateCheck("b2","from1","to1");
+                        dateCheck("b3","from2","to2");
+                        dateCheck("b4","from3","to3");
+                        dateCheck("b5","from4","to4");
+                        dateCheck("b6","from5","to5");
+                        dateCheck("b7","from6","to6");
+                        dateCheck("b8","from7","to7");
+                        }
+                    })
+                    .on( "change", function() {
+                        from.datepicker( "option", "maxDate", getDate( this ) );
+                    });
          
-            function getDate( element ) {
-              var date;
-              try {
-                date = $.datepicker.parseDate( dateFormat, element.value );
-              } catch( error ) {
-                date = null;
-              }
-         
-              return date;
-        }
-  } );
-
-$(".from").datepicker({
-  
-});
+            function getDate(element) {
+                var date;
+                try {
+                    date = $.datepicker.parseDate( dateFormat, element.value );
+                } 
+                catch( error ) {
+                    date = null;
+                }
+                return date;
+            }
+    });
   </script>
 </head>
 

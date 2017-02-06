@@ -96,6 +96,7 @@ function dateCheck(b, from, to) {
       letterform[b].setCustomValidity("");
     }
   }
+  
   else if (document.getElementById(b).checked == false) {
     document.getElementById(from).required = false;
     document.getElementById(to).required = false;
